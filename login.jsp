@@ -18,12 +18,12 @@
             <tr >
                 <td >nom</td >
                 <td >
-                    <input name = "nom" title = "" >
+                    <input name = "nom" title = "" value = "admin" >
                 </td >
             </tr >
             <tr >
                 <td >mot de passe</td >
-                <td ><input type = "password" name = "pass" title = "" ></td >
+                <td ><input type = "password" name = "pass" title = "" value = "adminpwd" ></td >
             </tr >
         <tr >
             <td rowspan = "2" >
