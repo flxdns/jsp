@@ -13,7 +13,7 @@
 	Integer droitUtil;
 
     try{
-        droitUtil =  (Integer) session.getAttribute("droit");// A CHANGER !
+        droitUtil =  (Integer) session.getAttribute("droit");
     } catch(Exception e) {
         droitUtil = null;
     }
