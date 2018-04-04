@@ -23,7 +23,7 @@ public class DB_PARTICIPANT {
      this.conn=conn;
      try{
         ps_select = conn.prepareStatement("select nom,age from participant where idp=?");
-  	ps_insert = conn.prepareStatement("insert into participant values(default,?,?)",ps_insert.RETURN_GENERATED_KEYS);
+  	    ps_insert = conn.prepareStatement("insert into participant values(default,?,?)",ps_insert.RETURN_GENERATED_KEYS);
         ps_update = conn.prepareStatement("update participant set nom=?, age=? where idp=?");
         ps_delete = conn.prepareStatement("delete from participant where idp=?"); 
      } catch(SQLException ex){System.out.println(ex);}
