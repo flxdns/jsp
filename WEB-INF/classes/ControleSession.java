@@ -17,7 +17,7 @@ public class ControleSession extends HttpServlet {
 		req.setAttribute("forwardOK",true);
 		//On fait le forward : A COMPLETER
 	    RequestDispatcher localRequestDispatcher = req.getRequestDispatcher(pageJSP);
-    	localRequestDispatcher.forward(req, res);		
+    	localRequestDispatcher.forward(req, res);
 	}
 
 	//cette mÃ©thode permet de rÃ©cupÃ©rer le droit 
