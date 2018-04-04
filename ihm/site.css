@@ -79,11 +79,11 @@ ul {
 
 /* style pour le tableau d'infos de debuggage */
 table.erreur, table.erreur td, table.erreur th {
-    border: 1px solid black;
+    border: 0.1em solid black;
     border-collapse: collapse;
     padding: 2px 5px 2px 5px;
     font-size: 12px;
-    background-color: yellow;
+    background-color: orange;
 }
 
 table.erreur {
@@ -92,10 +92,11 @@ table.erreur {
 
 /* style pour le formulaire de login */
 table.login {
-    border: 1px solid black;
-    width: 200px;
-    background-color: yellow;
-    margin: auto;
+    border: 0.5em solid deepskyblue;
+    padding: 10em 10em;
+    width: 20em;
+    background-color: lightgray;
+    margin: 10em auto;
 }
 
 .messerreur {
@@ -104,7 +105,7 @@ table.login {
 }
 
 table, td, th {
-    border: 2px solid #FFAAFF;
+    /*border: 2px solid #FFAAFF;*/
     border-collapse: collapse;
     padding: 2px;
 }
