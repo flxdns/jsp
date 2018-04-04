@@ -3,16 +3,16 @@
 	pendant la phase d'initialisation (méthode init) du controleur
 -->
 
-<html>
-<body>
+<html >
+<body >
 	<%
-		String mess = (String) request.getAttribute("mess");
-	%>
+        String mess = ( String ) request.getAttribute( "mess" );
+    %>
 
-	<h1>
-		ERREUR <br/>
-	</h1>
-	Une erreur s'est produite pendant l'exécution de la méthode <it>init</it> de la servlet controleur. <br/>
+	<h1 >
+		ERREUR <br />
+	</h1 >
+	Une erreur s'est produite pendant l'exécution de la méthode <it >init</it > de la servlet controleur. <br />
 	<%= mess %>
-</body>
-</html>
+</body >
+</html >

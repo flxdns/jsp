@@ -14,7 +14,3 @@
 VOUS N'AVEZ PAS LES DROITS POUR ACCEDER A CETTE FONCTIONNALITE !
 
 <jsp:include page="/ihm/miseEnPageSPORT2.jsp" />
-
-
-
-
