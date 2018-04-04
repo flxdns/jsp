@@ -21,8 +21,10 @@ public class DBS
 	{
 		try {
 			Class.forName( "org.postgresql.Driver" );
-			cnx = DriverManager.getConnection( "jdbc:postgresql:postgresql-letracnar.alwaysdata.net/letracnar_sport" , "letracnar_tomcat" ,
+			
+			cnx = DriverManager.getConnection( "jdbc:postgresql://postgresql-letracnar.alwaysdata.net:5432/letracnar_sport" , "letracnar_tomcat" ,
 			                                   "172839" ); // A MODIFIER !
+			System.out.println( "test" );
 			db_participant = new DB_PARTICIPANT( cnx );
 			db_epreuve = new DB_EPREUVE( cnx );
 			db_inscription = new DB_INSCRIPTION( cnx );
