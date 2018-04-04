@@ -5,109 +5,119 @@ janvier 2016 */
    Des classes sont ajoutées pour gérer l'affichage des tableaux
 */
 
-body {margin: 0px;
-font-family: sans-serif; 
+body {
+    margin: 0;
+    font-family: sans-serif;
 }
 
-div {padding: 8px;
+div {
+    padding: 8px;
 }
 
 .haut {
-  border-bottom: 2px solid silver;
-  padding: 0px;
+    border-bottom: 2px solid silver;
+    padding: 0;
 }
 
 .milieu {
-  display: table; 
-  padding: 0px;
-  clear:both; 
+    display: table;
+    padding: 0;
+    clear: both;
 }
 
 .hautCentre {
-  padding: 0px;
-  text-align: center;
-  margin-left: 250px;
-  font-size: 36px;
-  padding-top: 20px;
-  /*height: 70px;*/ 
+    text-align: center;
+    margin-left: 250px;
+    font-size: 36px;
+    padding: 20px 0 0;
+    /*height: 70px;*/
 }
 
-.hautGauche {float: left;
-top: 0px;
-left: 0px;
-padding: 0px;
+.hautGauche {
+    float: left;
+    top: 0;
+    left: 0;
+    padding: 0;
 }
 
-.menu { 
-  width: 200px;
-  display:table-cell;
-  border-right: 2px solid silver;
+.menu {
+    width: 200px;
+    display: table-cell;
+    border-right: 2px solid silver;
 }
 
 .contenu {
-  margin-left: 200px;
-  display:table-cell;
+    margin-left: 200px;
+    display: table-cell;
 }
 
-ul {margin: 0px;
+ul {
+    margin: 0;
 }
 
-.menu a {text-decoration: none;
-  color: black;
+.menu a {
+    text-decoration: none;
+    color: black;
 }
 
-.menu a:hover {color: red;
-  font-weight: bold;
+.menu a:hover {
+    color: red;
+    font-weight: bold;
 }
 
-.menu li {list-style-type: none;
-  padding: 6px;
-  background-color: #DDD; /* gris */
-  margin-bottom: 1px;
+.menu li {
+    list-style-type: none;
+    padding: 6px;
+    background-color: #DDD; /* gris */
+    margin-bottom: 1px;
 }
 
-#titre { color: red;
-	 text-align: center;
+#titre {
+    color: red;
+    text-align: center;
 }
-
 
 /* style pour le tableau d'infos de debuggage */
-table.erreur, table.erreur td , table.erreur th {
-	border : 1px solid black;
-	border-collapse : collapse;
-	padding : 2px 5px 2px 5px;
-	font-size : 12px;
-	background-color : yellow;
-}  
+table.erreur, table.erreur td, table.erreur th {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 2px 5px 2px 5px;
+    font-size: 12px;
+    background-color: yellow;
+}
 
 table.erreur {
-	margin : auto;
+    margin: auto;
 }
 
 /* style pour le formulaire de login */
 table.login {
-	border : 1px, solid, black;
-	width : 200;
-	background-color : yellow;
-	margin : auto;
+    border: 1px solid black;
+    width: 200px;
+    background-color: yellow;
+    margin: auto;
 }
 
 .messerreur {
-	color :red;
-	text-align: center;
+    color: red;
+    text-align: center;
 }
 
-table,td,th { border : 2px solid #FFAAFF;
-	      border-collapse : collapse;
-	      padding : 2px;
+table, td, th {
+    border: 2px solid #FFAAFF;
+    border-collapse: collapse;
+    padding: 2px;
 }
 
-.enteteTableau { background-color : #dedede;
+.enteteTableau {
+    background-color: #dedede;
 }
 
-.lignePaire { background-color : #FFFFDD;
+.lignePaire {
+    background-color: #FFFFDD;
 }
 
-.ligneImpaire { background-color : #FFFFCC;
+.ligneImpaire {
+    background-color: #FFFFCC;
 }
 

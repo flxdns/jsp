@@ -1,8 +1,8 @@
 package cmd;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
+import javax.servlet.http.HttpServletRequest;
 
-public interface Commande {
-	public String execute(HttpServletRequest req) throws Exception;
+public interface Commande
+{
+	String execute( HttpServletRequest req ) throws Exception;
 }     
