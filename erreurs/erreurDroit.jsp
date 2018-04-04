@@ -9,11 +9,11 @@
 
 <% String titre = "ERREUR"; %>
 
-<%@include file="../ihm/miseEnPagePAC1.jsp" %>
+<%@include file="/ihm/miseEnPageSPORT1.jsp" %>
 
 VOUS N'AVEZ PAS LES DROITS POUR ACCEDER A CETTE FONCTIONNALITE !
 
-<jsp:include page="../ihm/miseEnPagePAC2.jsp" />
+<jsp:include page="/ihm/miseEnPageSPORT2.jsp" />
 
 
 
