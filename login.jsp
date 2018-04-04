@@ -13,8 +13,8 @@
 %>
 
 <form action = 'controleur' method = "get" >
+    <input type = "hidden" name = "cmd" value = "login" >
     <table class = "login" >
-        <input type = "hidden" name = "cmd" value = "login" >
             <tr >
                 <td >nom</td >
                 <td >
