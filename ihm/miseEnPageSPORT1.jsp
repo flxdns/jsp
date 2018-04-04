@@ -10,7 +10,14 @@
 <%
 	}
 
-	Integer droitUtil = (Integer) session.getAttribute("droit");
+	Integer droitUtil;
+
+    try{
+        droitUtil =  (Integer) session.getAttribute("droit");// A CHANGER !
+    } catch(Exception e) {
+        droitUtil = null;
+    }
+
 	/*
 		Le droit de connexion doit etre 1 (consult) ou 2 (admin). Si
 		ce n'est aucun des deux alors on est renvoyÃ© vers la page de login.
