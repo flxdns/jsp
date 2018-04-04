@@ -24,9 +24,7 @@ public class DBS {
   private DBS() {
      try{
         	Class.forName ("org.postgresql.Driver");
-		    System.out.println("Driver installe");
-        	cnx = DriverManager.getConnection ("jdbc:postgresql:postgresql-letracnar.alwaysdata.net", "letracnar", "172839"); // A MODIFIER !
-		    System.out.println("connexion etablie");
+        	cnx = DriverManager.getConnection ("jdbc:postgresql:postgresql-letracnar.alwaysdata.net", "letracnar_tomcat", "172839"); // A MODIFIER !
             db_participant = new DB_PARTICIPANT(cnx);
 		    db_epreuve = new DB_EPREUVE(cnx);
 		    db_inscription = new DB_INSCRIPTION(cnx);
