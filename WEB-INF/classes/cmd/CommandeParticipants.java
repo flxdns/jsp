@@ -6,11 +6,11 @@ import beans.Participant;
 
 import javax.servlet.http.HttpServletRequest;
 
-public class CommandeParticipant implements Commande
+public class CommandeParticipants implements Commande
 {
     private final String next;
 
-    public CommandeParticipant(String next)
+    public CommandeParticipants(String next)
     {
         this.next = next;
     }
