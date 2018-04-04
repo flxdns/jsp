@@ -9,8 +9,8 @@ import beans.*;
 import cmd.*;
 
 public class Controleur extends HttpServlet {
-    private Map<String,Commande> map; //hashmap permettant d'associer Ã  chaque nom de commande la classe de commande associÃ©e
-    private Map<String,String> mapDroits; //hashmap permettant d'associer Ã  chaque nom de commande son droit d'accÃ¨s (all ou admin)
+    private Map<String,Commande> map; //hashmap permettant d'associer à  chaque nom de commande la classe de commande associée
+    private Map<String,String> mapDroits; //hashmap permettant d'associer à  chaque nom de commande son droit d'accès (all ou admin)
 
     private static final String JSP_ERREUR_INIT = "/erreurs/erreurInitControleur.jsp";
     private static final String JSP_ERREUR_CMD = "/erreurs/erreurCommande.jsp";
@@ -24,28 +24,31 @@ public class Controleur extends HttpServlet {
     //Nom de la commande de login (IMPOSE DANS CETTE VERSION)
     public static final String CMD_LOGIN = "login";
 
-    //Liste des valeurs possibles des droits associÃ©s aux pages
+    //Liste des valeurs possibles des droits associés aux pages
     public static final String ALL = "all";
     public static final String ADMIN = "admin";
 
 	/*
-	 * code de l'erreur Ã©ventuellement gÃ©nÃ©rÃ©e pendant
-           l'initialisation de la hashmap (mÃ©thode init)
+	 * code de l'erreur éventuellement générée pendant
+           l'initialisation de la hashmap (méthode init)
 	   0 : pas d'erreur
 	   -1 : classe de commande inexistante
 	   -2 : constructeur de la classe de commande inexistant
-	   -3 : erreur de crÃ©ation d'une instance de la classe de commande
-	   -4 : un paramÃ¨tre de l'application est mal initialisÃ© (valeur mal structurÃ©e)
-	   -7 : on essaie d'insÃ©rer deux fois le mÃªme nom de commande dans la HashMap
-	   -8 : utilisation d'un droit d'accÃ¨s inexistant pour une commande
+	   -3 : erreur de création d'une instance de la classe de commande
+	   -4 : un paramètre de l'application est mal initialisé (valeur mal structurée)
+	   -7 : on essaie d'insérer deux fois le même nom de commande dans la HashMap
+	   -8 : utilisation d'un droit d'accès inexistant pour une commande
 	 */
 	private int erreur;
-	private String messageErreur; 
+	private String messageErreur;
+
+	public Controleur() {
+	}
 
 	public void service(HttpServletRequest req, HttpServletResponse res) 
 		throws ServletException, IOException { 
 		
-		//on vÃ©rifie si la mÃ©thode init a dÃ©clenchÃ© une erreur
+		//on vérifie si la méthode init a déclenché une erreur
 		if (erreur !=0) {
 		   	req.setAttribute("code", erreur);
 			req.setAttribute("mess", messageErreur);
@@ -54,11 +57,11 @@ public class Controleur extends HttpServlet {
 			return;
 		}
 
-		//on indique que l'on est bien passÃ© par le controleur
+		//on indique que l'on est bien passé par le controleur
 		req.setAttribute("controleurOK",true);
 
 		String next=null;
-		//on rÃ©cupÃ¨re le nom de la commande Ã  activer dans la requÃªte reÃ§ue                               
+		//on récupère le nom de la commande à  activer dans la requête reà§ue                               
         	String cmd = req.getParameter("cmd");      
         	if (cmd==null) { cmd="accueil"; }
 		else {
@@ -69,17 +72,17 @@ public class Controleur extends HttpServlet {
 			}
 		}
 
-		//on vÃ©rifie que la commande peut bien Ãªtre exÃ©cutÃ©e car il y a un utilisateur connectÃ©
-		//on vÃ©rifie que la commande demandÃ©e a bien un droit compatible avec l'utilisateur connectÃ©
-		//on ne le fait que si la commande demandÃ©e n'est pas la commande de login
-		//Si l'un des deux points prÃ©cÃ©dents pose problÃ¨me, la servlet incluse 
+		//on vérifie que la commande peut bien être exécutée car il y a un utilisateur connecté
+		//on vérifie que la commande demandée a bien un droit compatible avec l'utilisateur connecté
+		//on ne le fait que si la commande demandée n'est pas la commande de login
+		//Si l'un des deux points précédents pose problème, la servlet incluse 
 		//va renvoyer vers la page de login avec un forward et donc la suite du controleur 
-		//ne sera pas exÃ©cutÃ©e.
-		//NB : il faut transmettre Ã  la servlet de controle de session le droit associÃ© Ã  la commande
+		//ne sera pas exécutée.
+		//NB : il faut transmettre à  la servlet de controle de session le droit associé à  la commande
 		if (! cmd.equals(CMD_LOGIN)) {
-			String droitCmd = mapDroits.get(cmd); //on rÃ©cupÃ¨re le droit associÃ© Ã  la commande
-			req.setAttribute("droitCmd",droitCmd); //on le transmet dans la requÃªte
-			//on dÃ©lÃ¨gue le controle Ã  la servlet de controle de session 
+			String droitCmd = mapDroits.get(cmd); //on récupère le droit associé à  la commande
+			req.setAttribute("droitCmd",droitCmd); //on le transmet dans la requête
+			//on délègue le controle à  la servlet de controle de session 
 			RequestDispatcher rdSession = req.getRequestDispatcher(SERVLET_CONTROLE_SESSION);
 			rdSession.include(req,res);
 		} 
@@ -88,12 +91,12 @@ public class Controleur extends HttpServlet {
 		Boolean forwardOK = (Boolean)req.getAttribute("forwardOK");
 		if (forwardOK!=null) { return; }
 
-		//NB : si on exÃ©cute cette partie, c'est que le controle de session a Ã©tÃ© validÃ©
-		//on rÃ©cupÃ¨re l'objet de type Commande associÃ© au nom de commande prÃ©cÃ©dent
+		//NB : si on exécute cette partie, c'est que le controle de session a été validé
+		//on récupère l'objet de type Commande associé au nom de commande précédent
         	Commande cde = map.get(cmd);                 
 		try {
-			//on exÃ©cute la mÃ©thode execute de l'objet "commande" sÃ©lectionnÃ©
-			//cette mÃ©thode renvoie le nom de la JSP qui devra Ãªtre activÃ©e ensuite
+			//on exécute la méthode execute de l'objet "commande" sélectionné
+			//cette méthode renvoie le nom de la JSP qui devra être activée ensuite
         		next = cde.execute(req);
 		} catch(Exception ex){
 		  req.setAttribute("exception",ex.getMessage());
@@ -101,7 +104,7 @@ public class Controleur extends HttpServlet {
 		  req.setAttribute("classe",cde.getClass().getName());
 		  next = JSP_EXCEPTION_CMD;
 		}
-		//Pour le debuggage Ã©ventuel, on passe dans la requÃªte 
+		//Pour le debuggage éventuel, on passe dans la requête 
 		//le nom de la classe de commande et le nom de la JSP (vue)
 		req.setAttribute("classeCmd",cde.getClass().getName());
 		req.setAttribute("jsp",next);		
@@ -110,20 +113,20 @@ public class Controleur extends HttpServlet {
 		RequestDispatcher rd = req.getRequestDispatcher(next); 
 		rd.forward(req, res); 
 
-	} //fin mÃ©thode service
+	} //fin méthode service
 
-	//Cette mÃ©thode est exÃ©cutÃ©e une seule fois lors de la crÃ©ation
-	//de la servlet par tomcat. Ceci arrive lors de la premiÃ¨re invocation
+	//Cette méthode est exécutée une seule fois lors de la création
+	//de la servlet par tomcat. Ceci arrive lors de la première invocation
 	//de la servlet
 	public void init(ServletConfig config) throws ServletException {
 
-		//une hashmap est utilisÃ©e pour mÃ©moriser les triplets :
-		//<nom commande, commande Ã  utiliser, page cible>
-		//"commande Ã  utiliser" correspond Ã  un objet instance d'une classe
-		//de commande dont la mÃ©thode "execute" devra Ãªtre exÃ©cutÃ©e par le controleur
-		//Suite Ã  cette exÃ©cution, la JSP appelÃ©e "page cible" devra Ãªtre activÃ©e par tomcat.
-		//Pour cela, le nom de cette page va Ãªtre mÃ©morisÃ©e dans l'objet commande activÃ© pour
-		//Ãªtre renvoyÃ© par la mÃ©thode execute. 
+		//une hashmap est utilisée pour mémoriser les triplets :
+		//<nom commande, commande à  utiliser, page cible>
+		//"commande à  utiliser" correspond à  un objet instance d'une classe
+		//de commande dont la méthode "execute" devra être exécutée par le controleur
+		//Suite à  cette exécution, la JSP appelée "page cible" devra être activée par tomcat.
+		//Pour cela, le nom de cette page va être mémorisée dans l'objet commande activé pour
+		//être renvoyé par la méthode execute. 
 		map = new HashMap<String,Commande>();
 		mapDroits = new HashMap<String,String>();
 		erreur = 0;
@@ -133,16 +136,16 @@ public class Controleur extends HttpServlet {
 
 	    	while (listeParametres.hasMoreElements()) {
 		    String nomParamCommande = ((String)listeParametres.nextElement());
-			//chaque couple(classe,jsp) est stockÃ© dans les paramÃ¨tres d'initialisation sous la forme
-			//d'un paramÃ¨tre dont le nom est cmd-nom, avec nom : le nom de la commande
+			//chaque couple(classe,jsp) est stocké dans les paramètres d'initialisation sous la forme
+			//d'un paramètre dont le nom est cmd-nom, avec nom : le nom de la commande
 			if (!nomParamCommande.startsWith("cmd-")) {
 			    continue;
-			    // Si ce n'est pas une dÃ©claration de commande, on ignore
+			    // Si ce n'est pas une déclaration de commande, on ignore
 			}
 		    String ligne = config.getServletContext().getInitParameter(nomParamCommande);
 
-			//la valeur du paramÃ¨tre est une chaine de caractÃ¨res oÃ¹ les Ã©lÃ©ments
-			//du couple sont sÃ©parÃ©s par des points-virgule
+			//la valeur du paramètre est une chaine de caractères oà¹ les éléments
+			//du couple sont séparés par des points-virgule
         		String [] ligneDecomposee = ligne.split(";");
 			if (ligneDecomposee.length != 3) {
 				erreur = -4;
@@ -150,21 +153,21 @@ public class Controleur extends HttpServlet {
 				messageErreur += ligne + ")";
 				return;
 			}
-			//on enlÃ¨ve les Ã©ventuels blancs "en trop" pour chacune des infos Ã  rÃ©cupÃ©rer
+			//on enlève les éventuels blancs "en trop" pour chacune des infos à  récupérer
         		String nomCommande = nomParamCommande.substring(4).trim();
         		String nomClasseCommande = ligneDecomposee[0].trim();
         		String pageSuivante = ligneDecomposee[1].trim();
 			String droit = ligneDecomposee[2].trim();
 
-			//On vÃ©rifie que le droit est bien soit "all" soit "admin"
+			//On vérifie que le droit est bien soit "all" soit "admin"
 			if (!(droit.equals(ALL) || droit.equals(ADMIN))) {
 				erreur = -8;
 				messageErreur = "Utilisation dans le fichier web.xml d'un droit inexistant pour la commande  "+ nomCommande;
 				return;				
 			}
 
-			//on demande Ã  la machine virtuelle Java de charger la classe de l'objet commande
-			//qui devra Ãªtre activÃ©e
+			//on demande à  la machine virtuelle Java de charger la classe de l'objet commande
+			//qui devra être activée
 			Class<?> classeCommande = null;
 			Constructor<?> consCommande = null;
 			Commande commande = null;
@@ -178,9 +181,9 @@ public class Controleur extends HttpServlet {
 			      messageErreur += nomClasseCommande + ")";
 			      return;
 			}
-			//on rÃ©cupÃ¨re dynamiquement le constructeur de cette classe
+			//on récupère dynamiquement le constructeur de cette classe
 			//"String.class" signifie que le constructeur que l'on recherche prend un
-			//Ã©lÃ©ment de type String en paramÃ¨tre (le nom de la page JSP cible)
+			//élément de type String en paramètre (le nom de la page JSP cible)
 			try {
         			consCommande = classeCommande.getConstructor(String.class);
 			}
@@ -189,17 +192,17 @@ public class Controleur extends HttpServlet {
 			      messageErreur = "Constructeur d'une classe de Commande inexistant";
 			      return;
 			}
-			//on crÃ©e donc une objet instance de la classe de Commande concernÃ©e.
-			//on passe en paramÃ¨tre au constructeur le nom de la page JSP cible ie.
-			//qui devra Ãªtre activÃ©e par tomcat Ã  la fin de l'exÃ©cution de la 
-			//mÃ©thode execute de l'objet commande activÃ©.
+			//on crée donc une objet instance de la classe de Commande concernée.
+			//on passe en paramètre au constructeur le nom de la page JSP cible ie.
+			//qui devra être activée par tomcat à  la fin de l'exécution de la 
+			//méthode execute de l'objet commande activé.
 			try {
         			commande = ((Commande) consCommande.newInstance(pageSuivante));
 			}
 			catch (Exception ex) {
 			      erreur = -3;
 			      messageErreur = "Erreur pendant la cr&eacute;ation d'une instance d'une classe de Commande <br/>";
-			      messageErreur += "Il est possible qu'une classe de commande utilisÃ©e dans le fichier web.xml";
+			      messageErreur += "Il est possible qu'une classe de commande utilisée dans le fichier web.xml";
 			      messageErreur += " n'implante pas l'interface Commande.";
 			      return;
 			}
@@ -213,6 +216,6 @@ public class Controleur extends HttpServlet {
         		map.put(nomCommande,commande);
 			mapDroits.put(nomCommande,droit);
 	    } //fin du for                 
-	} //fin mÃ©thode init
+	} //fin méthode init
 
 } //fin de la classe
