@@ -82,7 +82,7 @@
 
     <context-param>
         <param-name>cmd-epreuves</param-name>
-        <param-value>bdd.CommandeEpreuves;epreuves.jsp;all</param-value>
+        <param-value>cmd.CommandeEpreuves;epreuves.jsp;all</param-value>
     </context-param>
 
 </web-app>
