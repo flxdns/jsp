@@ -15,11 +15,11 @@ import java.util.ArrayList;
 public class DB_INSCRIPTION
 {
 	
-	Connection        conn;
-	PreparedStatement ps_select;
-	PreparedStatement ps_insert;
-	PreparedStatement ps_update;
-	PreparedStatement ps_delete;
+	private Connection        conn;
+	private PreparedStatement ps_select;
+	private PreparedStatement ps_insert;
+	private PreparedStatement ps_update;
+	private PreparedStatement ps_delete;
 	
 	public DB_INSCRIPTION( Connection conn )
 	{
