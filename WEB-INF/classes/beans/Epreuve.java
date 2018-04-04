@@ -8,10 +8,10 @@ public class Epreuve
     private String nom;
     private String categ;
     private Date datep;
-    private int tarifClub;
-    private int tarifNonClub;
+    private double tarifClub;
+    private double tarifNonClub;
 
-    public Epreuve(int ide, String nom, String categ, Date date, int tarifClub, int tarifNonClub)
+    public Epreuve(int ide, String nom, String categ, Date date, double tarifClub, double tarifNonClub)
     {
         setIde(ide);
         setNom(nom);
@@ -21,7 +21,7 @@ public class Epreuve
         setTarifNonClub(tarifNonClub);
     }
 
-    public Epreuve(String nom, String categ, Date date, int tarifClub, int tarifNonClub)
+    public Epreuve(String nom, String categ, Date date, double tarifClub, double tarifNonClub)
     {
         setIde(-1);
         setNom(nom);
@@ -51,12 +51,12 @@ public class Epreuve
         return datep;
     }
 
-    public int getTarifClub()
+    public double getTarifClub()
     {
         return tarifClub;
     }
 
-    public int getTarifNonClub()
+    public double getTarifNonClub()
     {
         return tarifNonClub;
     }
@@ -81,12 +81,12 @@ public class Epreuve
         this.datep = date;
     }
 
-    public void setTarifClub(int tarifClub)
+    public void setTarifClub(double tarifClub)
     {
         this.tarifClub = tarifClub;
     }
 
-    public void setTarifNonClub(int tarifNonClub)
+    public void setTarifNonClub(double tarifNonClub)
     {
         this.tarifNonClub = tarifNonClub;
     }

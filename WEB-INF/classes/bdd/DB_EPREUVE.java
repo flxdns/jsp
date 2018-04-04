@@ -15,11 +15,11 @@ import java.util.ArrayList;
 public class DB_EPREUVE
 {
 	
-	Connection        conn;
-	PreparedStatement ps_select;
-	PreparedStatement ps_insert;
-	PreparedStatement ps_update;
-	PreparedStatement ps_delete;
+	private Connection        conn;
+	private PreparedStatement ps_select;
+	private PreparedStatement ps_insert;
+	private PreparedStatement ps_update;
+	private PreparedStatement ps_delete;
 	
 	public DB_EPREUVE( Connection conn )
 	{
@@ -27,20 +27,31 @@ public class DB_EPREUVE
 		try {
 			ps_select = conn.prepareStatement( "select nom, categ, datep, tarifclub, tarifclub from epreuve where ide=?" );
 			ps_insert = conn.prepareStatement( "insert into epreuve values(default,?,?,?,?,?)" , ps_insert.RETURN_GENERATED_KEYS );
-			ps_update = conn.prepareStatement( "update epreuve set nom=?, age=? where ide=?" );
-			ps_delete = conn.prepareStatement( "delete from epreuve where idp=?" );
-		} catch( SQLException ex ) {System.out.println( ex );}
+			ps_update = conn.prepareStatement( "update epreuve set nom=?, categ=?, datep=?,tarifclub=?, tarifnonclub=? where ide=?" );
+			ps_delete = conn.prepareStatement( "delete from epreuve where ide=?" );
+		} catch( SQLException e ) {e.printStackTrace( );}
 	}
 	
-	public Epreuve getEpreuve( int idp ) throws Exception
+	public Epreuve getEpreuve( int ide )
 	{
 		Epreuve p = null;
-		ps_select.setInt( 1 , idp );
-		ResultSet rs = ps_select.executeQuery( );
-		if( rs.next( ) ) {
-			String nom = rs.getString( "nom" );
-			int    age = rs.getInt( "age" );
-			p = new Epreuve( idp , nom , age );
+		try {
+			ps_select.setInt( 1 , ide );
+			
+			ResultSet rs;
+			
+			rs = ps_select.executeQuery( );
+			
+			if( rs.next( ) ) {
+				String nom          = rs.getString( "nom" );
+				String categ        = rs.getString( "categ" );
+				Date   datep        = rs.getDate( "datep" );
+				double tarifClub    = rs.getDouble( "tarifClub" );
+				double tarifNonClub = rs.getDouble( "tarifNonClub" );
+				p = new Epreuve( ide , nom , categ , datep , tarifClub , tarifNonClub );
+			}
+		} catch( SQLException e ) {
+			e.printStackTrace( );
 		}
 		return p;
 	}
@@ -49,61 +60,81 @@ public class DB_EPREUVE
 	//Ã©tÃ© gÃ©nÃ©rÃ© automatiquement grace au type postgres SERIAL
 	//Cela siginifie que la valeur de l'attribut idp de l'objet passÃ© en paramÃ¨tre
 	//est ignorÃ©e.
-	public int insertEpreuve( Epreuve p ) throws Exception
+	public int insertEpreuve( Epreuve p )
 	{
 		int clef = - 1;
-		
-		ps_insert.setString( 1 , p.getNom( ) );
-		ps_insert.setInt( 2 , p.getAge( ) );
-		//le paramÃ¨tre passÃ© Ã  executeUpdate permet de rÃ©cupÃ©rer les clefs 
-		//Ã©ventuellement gÃ©nÃ©rÃ©es automatiquement (via le type serial) au moment
-		//de l'exÃ©cution de l'ordre SQL.
-		ps_insert.executeUpdate( );
-		//on rÃ©cupÃ¨re les clefs gÃ©nÃ©rÃ©es (une seule ici)
-		ResultSet clefs = ps_insert.getGeneratedKeys( );
-		if( clefs.next( ) ) {
-			clef = clefs.getInt( 1 );
-		}
+		try {
+			ps_insert.setString( 1 , p.getNom( ) );
+			ps_insert.setString( 2 , p.getCateg( ) );
+			ps_insert.setDate( 3 , p.getDatep( ) );
+			ps_insert.setDouble( 4 , p.getTarifClub( ) );
+			ps_insert.setDouble( 5 , p.getTarifNonClub( ) );
+			//le paramÃ¨tre passÃ© Ã  executeUpdate permet de rÃ©cupÃ©rer les clefs
+			//Ã©ventuellement gÃ©nÃ©rÃ©es automatiquement (via le type serial) au moment
+			//de l'exÃ©cution de l'ordre SQL.
+			ps_insert.executeUpdate( );
+			//on rÃ©cupÃ¨re les clefs gÃ©nÃ©rÃ©es (une seule ici)
+			ResultSet clefs = ps_insert.getGeneratedKeys( );
+			if( clefs.next( ) ) {
+				clef = clefs.getInt( 1 );
+			}
+		} catch( SQLException e ) {e.printStackTrace( );}
 		
 		return clef;
 	}
 	
-	public void updateEpreuve( Epreuve p ) throws Exception
+	public void updateEpreuve( Epreuve p )
 	{
-		ps_update.setString( 1 , p.getNom( ) );
-		ps_update.setInt( 2 , p.getAge( ) );
-		ps_update.setInt( 3 , p.getIdp( ) );
-		ps_update.executeUpdate( );
+		try {
+			ps_update.setString( 1 , p.getNom( ) );
+			ps_update.setString( 2 , p.getCateg( ) );
+			ps_update.setDate( 3 , p.getDatep( ) );
+			ps_update.setDouble( 4 , p.getTarifClub( ) );
+			ps_update.setDouble( 5 , p.getTarifNonClub( ) );
+			ps_update.setInt( 6 , p.getIde( ) );
+			
+			ps_update.executeUpdate( );
+		} catch( SQLException e ) {e.printStackTrace( );}
 	}
 	
-	public void deleteEpreuve( int idp ) throws Exception
+	public void deleteEpreuve( int ide )
 	{
-		ps_delete.setInt( 1 , idp );
-		ps_delete.executeUpdate( );
+		try {
+			ps_delete.setInt( 1 , ide );
+			ps_delete.executeUpdate( );
+		} catch( SQLException e ) {e.printStackTrace( );}
 	}
 	
 	// cette mÃ©thode ne peut Ãªtre utilisÃ©e que dans cette classe
 	// elle ne peut pas Ãªtre utilisÃ©e dans d'autres classes
-	private ArrayList< Epreuve > getEpreuves( String req ) throws Exception
+	private ArrayList< Epreuve > getEpreuves( String req )
 	{
 		// pre-condition: req est de la forme "SELECT * FROM Epreuve ..."
 		// car il s'agit d'extraire un ensemble de epreuves
 		
 		Epreuve              par;
-		ArrayList< Epreuve > apar = null;
+		ArrayList< Epreuve > apar;
 		
-		apar = new ArrayList< Epreuve >( );
-		Statement st = conn.createStatement( );
-		ResultSet rs = st.executeQuery( req );
-		while( rs.next( ) ) {
-			par = new Epreuve( rs.getInt( "idp" ) , rs.getString( "nom" ) , rs.getInt( "age" ) );
-			apar.add( par );
-		}
+		apar = new ArrayList<>( );
+		try {
+			Statement st = conn.createStatement( );
+			ResultSet rs = st.executeQuery( req );
+			while( rs.next( ) ) {
+				par = new Epreuve( rs.getInt( "ide" ) , rs.getString( "nom" ) , rs.getString( "categ" ) , rs.getDate( "datep" ) ,
+				                   rs.getInt( "tarifClub" ) , rs.getInt( "tarifNonClub" ) );
+				apar.add( par );
+			}
+		} catch( SQLException e ) {e.printStackTrace( );}
 		return apar;
 	}
 	
-	public ArrayList< Epreuve > getEpreuves( ) throws Exception
+	public ArrayList< Epreuve > getEpreuves( )
 	{
-		return getEpreuves( "select * from epreuve" );
+		try {
+			return getEpreuves( "select * from epreuve" );
+		} catch( Exception e ) {
+			e.printStackTrace( );
+		}
+		return null;
 	}
 }
