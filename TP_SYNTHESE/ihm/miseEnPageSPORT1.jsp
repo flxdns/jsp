@@ -28,11 +28,11 @@
 				droitUtil = null;
 			}
 			/*
-				Le droit de connexion doit etre 1 (consult) ou 2 (admin). Si 
+				Le droit de connexion doit etre 1 (consult) ou 2 (admin). Si
 				ce n'est aucun des deux alors on est renvoyé vers la page de login.
 			 */
-			boolean afficheMenuAdmin; 
-	
+			boolean afficheMenuAdmin;
+
 			if (droitUtil == null) {
 		%>
 				<jsp:forward page="login.jsp" />
@@ -43,7 +43,7 @@
 				if ((droitUtil != 1) && (droitUtil != 2)) {
 		%>
 					<jsp:forward page="login.jsp" />
-		<%		
+		<%
 				} //fin droit!=1 et droit!=2
 			} //fin else
 		%>
@@ -61,7 +61,7 @@
 						String nomCmd = request.getParameter("cmd");
 						String classeCmd = (String)request.getAttribute("classeCmd");
 						String jsp = (String)request.getAttribute("jsp");
-				%>	
+				%>
 				<table class="erreur">
 					<tr>
 						<th> nom Commande </th>
@@ -104,11 +104,11 @@
 					<li><a href="controleur?cmd=epreuveMAJ"> Mise &agrave; jour des epreuves</a></li>
 					<li><a href="controleur?cmd=ajoutParticipant"> Ajouter un participant </a></li>
 					<li><a href="controleur?cmd=suppressionParticipants">Supression des participants </a></li>
-					
+
 					<li><a href="controleur?cmd=epreuvesMAJ"> Mise &agrave; jour des epreuves </a></li>
 					<li><a href="controleur?cmd=ajoutEpreuves"> Ajouter un epreuve </a></li>
 					<li><a href="controleur?cmd=suppressionEpreuves">Supression des epreuves </a></li>
-					
+
 					<li><a href="controleur?cmd=inscriptionsMAJ"> Mise &agrave; jour des inscriptions </a></li>
 					<li><a href="controleur?cmd=ajoutInscriptions"> Ajouter une inscription </a></li>
 					<li><a href="controleur?cmd=suppressionInscriptions">Supression des inscriptions </a></li>
