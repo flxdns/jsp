@@ -14,8 +14,14 @@
 <table class = "login" >
 <form action = 'controleur' method = "get" >
 <input type = "hidden" name = "cmd" value = "login" >
-<tr ><td >nom:<input name = "nom" ></td ></tr >
-<tr ><td >pass:<input type = "password" name = "pass" ></td ></tr >
+    <tr >
+        <td >nom:</td >
+        <td ><input name = "nom" ></td >
+    </tr >
+    <tr >
+        <td >pass:</td >
+        <td ><input type = "password" name = "pass" ></td >
+    </tr >
 <tr ><td ><input type = "submit" ></td ></tr >
 </form >
 </table >
