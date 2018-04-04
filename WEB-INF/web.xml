@@ -1,94 +1,171 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<!--
- Licensed to the Apache Software Foundation (ASF) under one or more
-  contributor license agreements.  See the NOTICE file distributed with
-  this work for additional information regarding copyright ownership.
-  The ASF licenses this file to You under the Apache License, Version 2.0
-  (the "License"); you may not use this file except in compliance with
-  the License.  You may obtain a copy of the License at
-
-      http://www.apache.org/licenses/LICENSE-2.0
-
-  Unless required by applicable law or agreed to in writing, software
-  distributed under the License is distributed on an "AS IS" BASIS,
-  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  See the License for the specific language governing permissions and
-  limitations under the License.
--->
-
 <!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.2//EN" "http://java.sun.com/j2ee/dtds/web-app_2.2.dtd">
-
 <web-app>
-
-    <!-- dÃ©finition de la vue Ã  activer par dÃ©faut au lancement de l'application -->
+    <!-- d�finition de la vue � activer par d�faut au lancement de l'application -->
     <welcome-file-list>
-    <welcome-file>login.jsp</welcome-file>
+        <welcome-file>login.jsp</welcome-file>
     </welcome-file-list>
 
-    <!-- paramÃ¨tres de l'application web : pour le controleur -->
+    <!-- param�tres de l'application web : pour le controleur -->
     <!-- liste des commandes -->
-    <!-- A COMPLETER -->
-    
+
+    <context-param>
+        <param-name>cmd-participants</param-name>
+        <param-value>bdd.CommandeParticipants;participants.jsp;all</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>cmd-epreuves</param-name>
+        <param-value>bdd.CommandeEpreuves;epreuves.jsp;all</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>cmd-epreuvesId</param-name>
+        <param-value>bdd.CommandeTrierEpreuvesIdE;epreuves.jsp;all</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>cmd-epreuvesNom</param-name>
+        <param-value>bdd.CommandeTrierEpreuvesNom;epreuves.jsp;all</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>cmd-epreuvesCateg</param-name>
+        <param-value>bdd.CommandeTrierEpreuvesCateg;epreuves.jsp;all</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>cmd-epreuvesDateP</param-name>
+        <param-value>bdd.CommandeTrierEpreuvesDateP;epreuves.jsp;all</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>cmd-epreuvesTarifClub</param-name>
+        <param-value>bdd.CommandeTrierEpreuvesTarifClub;epreuves.jsp;all</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>cmd-epreuvesTarifNonClub</param-name>
+        <param-value>bdd.CommandeTrierEpreuvesTarifNonClub;epreuves.jsp;all</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>cmd-inscriptions</param-name>
+        <param-value>bdd.CommandeInscriptions;inscriptions.jsp;all</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>cmd-inscription1</param-name>
+        <param-value>bdd.CommandeTrierInscriptions;inscriptions.jsp;all</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>cmd-inscription2</param-name>
+        <param-value>bdd.CommandeTrierInscriptionsIdE;inscriptions.jsp;all</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>cmd-inscription3</param-name>
+        <param-value>bdd.CommandeTrierInscriptionsCateg;inscriptions.jsp;all</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>cmd-participantId</param-name>
+        <param-value>bdd.CommandeTrierParticipantsIdp;participants.jsp;all</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>cmd-participantNom</param-name>
+        <param-value>bdd.CommandeTrierParticipantsNom;participants.jsp;all</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>cmd-participantAge</param-name>
+        <param-value>bdd.CommandeTrierParticipantsAge;participants.jsp;all</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>cmd-participantAge</param-name>
+        <param-value>bdd.CommandeTrierParticipantsAge;participants.jsp;all</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>cmd-inscription</param-name>
+        <param-value>bdd.CommandeParticipants;inscriptions.jsp;all</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>cmd-inscriptionEpreuves</param-name>
+        <param-value>bdd.CommandeEpreuves;inscriptions.jsp;all</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>cmd-inscriptionEpreuve</param-name>
+        <param-value>bdd.CommandeInscriptions;epreuves.jsp;all</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>cmd-inscriptionParticipant</param-name>
+        <param-value>bdd.CommandeParticipants;participants.jsp;all</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>cmd-ajoutParticipant</param-name>
+        <param-value>bdd.CommandeParticipants;ajoutParticipant.jsp;admin</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>cmd-deconnect</param-name>
+        <param-value>bdd.NullCommande;deconnexion.jsp;all</param-value>
+    </context-param>
+
     <!-- commande pour obtenir la page d'accueil -->
     <context-param>
         <param-name>cmd-accueil</param-name>
-    <param-value>cmd.NullCommande;accueil.jsp;all</param-value>
+        <param-value>bdd.NullCommande;accueil.jsp;all</param-value>
     </context-param>
 
-    <!-- le nom de la commande de login doit etre obligatoirement login -->
-
-    <!-- commande qui permet aprÃ¨s une tentative de connexion de valider
-    ou non la connexion -->
+    <!-- commande qui permet apr�s une tentative de connexion de valider ou non la connexion -->
     <context-param>
         <param-name>cmd-login</param-name>
-    <param-value>cmd.CommandeVerifLogin;accueil.jsp;all</param-value>
+        <param-value>bdd.CommandeVerifLogin;accueil.jsp;all</param-value>
     </context-param>
 
-   <!-- commande qui permet d'obtenir le formulaire de connexion -->
+    <!-- commande qui permet d'obtenir le formulaire de connexion -->
     <context-param>
         <param-name>cmd-connexion</param-name>
-    <param-value>cmd.NullCommande;login.jsp;all</param-value>
+        <param-value>bdd.NullCommande;login.jsp;all</param-value>
     </context-param>
 
-    <!-- commande qui permet de gÃ©rer la dÃ©connexion -->
-    <!-- A DECOMMENTER QUAND LA CLASSE Deconnexion SERA ECRITE -->
-    <!-- 
-    <context-param>
-        <param-name>cmd-deconnect</param-name>
-    <param-value>pac.Deconnexion;login.jsp;all</param-value>
-    </context-param>
-    -->
-
-    <!-- commande qui permet, en mode connectÃ©, d'obtenir la page
-     erreurDroit.jsp suite Ã  une requÃªte directe vers une JSP 
-     ou une requÃªte vers le controleur pour une commande dont 
-     le droit n'est pas compatible avec celui de la personne connectÃ©e
+    <!-- commande qui permet, en mode connect�, d'obtenir la page
+    erreurDroit.jsp suite � une requ�te directe vers une JSP
+    ou une requ�te vers le controleur pour une commande dont
+    le droit n'est pas compatible avec celui de la personne connect�e
     -->
     <context-param>
         <param-name>cmd-erreurDroit</param-name>
-    <param-value>cmd.NullCommande;erreurs/erreurDroit.jsp;all</param-value>
+        <param-value>bdd.NullCommande;erreurs/erreurDroit.jsp;all</param-value>
     </context-param>
 
-    <!-- dÃ©claration de la servlet qui fait le controle de session -->
+    <!-- d�claration de la servlet qui fait le controle de session -->
     <servlet>
-      <servlet-name>controleSession</servlet-name>
-      <servlet-class>ControleSession</servlet-class>
+        <servlet-name>controleSession</servlet-name>
+        <servlet-class>ControleSession</servlet-class>
     </servlet>
-    
+
     <servlet-mapping>
         <servlet-name>controleSession</servlet-name>
         <url-pattern>/controleSession</url-pattern>
     </servlet-mapping>
 
-    <!-- dÃ©claration du controleur -->
+    <!-- d�claration du controleur -->
     <servlet>
-      <servlet-name>controleur</servlet-name>
-      <servlet-class>Controleur</servlet-class>
+        <servlet-name>controleur</servlet-name>
+        <servlet-class>Controleur</servlet-class>
     </servlet>
-    
+
     <servlet-mapping>
         <servlet-name>controleur</servlet-name>
         <url-pattern>/controleur</url-pattern>
     </servlet-mapping>
-    
 </web-app>
