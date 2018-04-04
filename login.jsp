@@ -10,21 +10,29 @@
 <%
     String erreur = ( String ) request.getAttribute( "erreur" );
     if( erreur != null ) out.println( "<div class=\"messerreur\">" + erreur + "</div>" );
-%>	
-<table class = "login" >
+%>
+
 <form action = 'controleur' method = "get" >
-<input type = "hidden" name = "cmd" value = "login" >
-    <tr >
-        <td >nom:</td >
-        <td ><input name = "nom" ></td >
-    </tr >
-    <tr >
-        <td >pass:</td >
-        <td ><input type = "password" name = "pass" ></td >
-    </tr >
-<tr ><td ><input type = "submit" ></td ></tr >
+    <input type = "hidden" name = "cmd" value = "login" >
+    <table class = "login" >
+            <tr >
+                <td >nom</td >
+                <td >
+                    <input name = "nom" title = "" >
+                </td >
+            </tr >
+            <tr >
+                <td >mot de passe</td >
+                <td ><input type = "password" name = "pass" title = "" ></td >
+            </tr >
+        <tr >
+            <td rowspan = "2" >
+                <input type = "submit" >
+            </td >
+        </tr >
+    </table >
 </form >
-</table >
+
 
 </body >
 </html >
