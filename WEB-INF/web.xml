@@ -1,12 +1,14 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
-<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.2//EN" "http://java.sun.com/j2ee/dtds/web-app_2.2.dtd">
-<web-app>
-    <!-- définition de la vue à activer par défaut au lancement de l'application -->
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+         version="3.0">
+    <!-- dÃ©finition de la vue Ã  activer par dÃ©faut au lancement de l'application -->
     <welcome-file-list>
         <welcome-file>login.jsp</welcome-file>
     </welcome-file-list>
 
-    <!-- paramètres de l'application web : pour le controleur -->
+    <!-- paramÃ¨tres de l'application web : pour le controleur -->
     <!-- liste des commandes -->
 
     <context-param>
@@ -125,7 +127,7 @@
         <param-value>bdd.NullCommande;accueil.jsp;all</param-value>
     </context-param>
 
-    <!-- commande qui permet après une tentative de connexion de valider ou non la connexion -->
+    <!-- commande qui permet aprÃ¨s une tentative de connexion de valider ou non la connexion -->
     <context-param>
         <param-name>cmd-login</param-name>
         <param-value>bdd.CommandeVerifLogin;accueil.jsp;all</param-value>
@@ -137,17 +139,17 @@
         <param-value>bdd.NullCommande;login.jsp;all</param-value>
     </context-param>
 
-    <!-- commande qui permet, en mode connecté, d'obtenir la page
-    erreurDroit.jsp suite à une requête directe vers une JSP
-    ou une requête vers le controleur pour une commande dont
-    le droit n'est pas compatible avec celui de la personne connectée
+    <!-- commande qui permet, en mode connectÃ©, d'obtenir la page
+    erreurDroit.jsp suite Ã  une requÃªte directe vers une JSP
+    ou une requÃªte vers le controleur pour une commande dont
+    le droit n'est pas compatible avec celui de la personne connectÃ©e
     -->
     <context-param>
         <param-name>cmd-erreurDroit</param-name>
         <param-value>bdd.NullCommande;erreurs/erreurDroit.jsp;all</param-value>
     </context-param>
 
-    <!-- déclaration de la servlet qui fait le controle de session -->
+    <!-- dÃ©claration de la servlet qui fait le controle de session -->
     <servlet>
         <servlet-name>controleSession</servlet-name>
         <servlet-class>ControleSession</servlet-class>
@@ -158,7 +160,7 @@
         <url-pattern>/controleSession</url-pattern>
     </servlet-mapping>
 
-    <!-- déclaration du controleur -->
+    <!-- dÃ©claration du controleur -->
     <servlet>
         <servlet-name>controleur</servlet-name>
         <servlet-class>Controleur</servlet-class>
