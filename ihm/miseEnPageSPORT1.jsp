@@ -102,8 +102,10 @@ else {
 		Administration
 		<hr/>
 		<ul>
+            <li><a href="controleur?cmd=inscriptionParticipant"> Inscrire un participant </a></li>
 			<li><a href="controleur?cmd=participantsMAJ"> Mise &agrave; jour des participants </a></li>
-			<li><a href="controleur?cmd=ajoutParticipant"> Ajouter un participant </a></li>
+            <li><a href="controleur?cmd=ajoutParticipant"> Ajouter un participant </a></li>
+            <li><a href="controleur?cmd=ajoutParticipant"> Ajouter une epreuve </a></li>
 			<li><a href="">... </a></li>
 		</ul>
 		<%
