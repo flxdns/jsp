@@ -1,8 +1,8 @@
-// sous module specfique de gestion des acces a la table PARTICIPANT
-// Table : Participant(idp, nom, age)
+// sous module specfique de gestion des acces a la table EPREUVE
+// Table : Epreuve(idp, nom, age)
 package bdd;
 
-import beans.Participant;
+import beans.Epreuve;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -12,7 +12,7 @@ import java.util.ArrayList;
    (Ã  cause de l'utilisation de getGeneratedKeys())
  */
 
-public class DB_PARTICIPANT
+public class DB_EPREUVE
 {
 	
 	Connection        conn;
@@ -21,41 +21,41 @@ public class DB_PARTICIPANT
 	PreparedStatement ps_update;
 	PreparedStatement ps_delete;
 	
-	public DB_PARTICIPANT( Connection conn )
+	public DB_EPREUVE( Connection conn )
 	{
 		this.conn = conn;
 		try {
-			ps_select = conn.prepareStatement( "select nom,age from participant where idp=?" );
-			ps_insert = conn.prepareStatement( "insert into participant values(default,?,?)" , ps_insert.RETURN_GENERATED_KEYS );
-			ps_update = conn.prepareStatement( "update participant set nom=?, age=? where idp=?" );
-			ps_delete = conn.prepareStatement( "delete from participant where idp=?" );
+			ps_select = conn.prepareStatement( "select nom, categ, datep, tarifclub, tarifclub from epreuve where ide=?" );
+			ps_insert = conn.prepareStatement( "insert into epreuve values(default,?,?,?,?,?)" , ps_insert.RETURN_GENERATED_KEYS );
+			ps_update = conn.prepareStatement( "update epreuve set nom=?, age=? where ide=?" );
+			ps_delete = conn.prepareStatement( "delete from epreuve where idp=?" );
 		} catch( SQLException ex ) {System.out.println( ex );}
 	}
 	
-	public Participant getParticipant( int idp ) throws Exception
+	public Epreuve getEpreuve( int idp ) throws Exception
 	{
-		Participant p = null;
+		Epreuve p = null;
 		ps_select.setInt( 1 , idp );
 		ResultSet rs = ps_select.executeQuery( );
 		if( rs.next( ) ) {
 			String nom = rs.getString( "nom" );
 			int    age = rs.getInt( "age" );
-			p = new Participant( idp , nom , age );
+			p = new Epreuve( idp , nom , age );
 		}
 		return p;
 	}
 	
-	//la mÃ©thode renvoie le numÃ©ro du participant qui vient d'Ãªtre insÃ©rÃ© et qui a
+	//la mÃ©thode renvoie le numÃ©ro du epreuve qui vient d'Ãªtre insÃ©rÃ© et qui a
 	//Ã©tÃ© gÃ©nÃ©rÃ© automatiquement grace au type postgres SERIAL
 	//Cela siginifie que la valeur de l'attribut idp de l'objet passÃ© en paramÃ¨tre
 	//est ignorÃ©e.
-	public int insertParticipant( Participant p ) throws Exception
+	public int insertEpreuve( Epreuve p ) throws Exception
 	{
 		int clef = - 1;
 		
 		ps_insert.setString( 1 , p.getNom( ) );
 		ps_insert.setInt( 2 , p.getAge( ) );
-		//le paramÃ¨tre passÃ© Ã  executeUpdate permet de rÃ©cupÃ©rer les clefs
+		//le paramÃ¨tre passÃ© Ã  executeUpdate permet de rÃ©cupÃ©rer les clefs 
 		//Ã©ventuellement gÃ©nÃ©rÃ©es automatiquement (via le type serial) au moment
 		//de l'exÃ©cution de l'ordre SQL.
 		ps_insert.executeUpdate( );
@@ -68,7 +68,7 @@ public class DB_PARTICIPANT
 		return clef;
 	}
 	
-	public void updateParticipant( Participant p ) throws Exception
+	public void updateEpreuve( Epreuve p ) throws Exception
 	{
 		ps_update.setString( 1 , p.getNom( ) );
 		ps_update.setInt( 2 , p.getAge( ) );
@@ -76,7 +76,7 @@ public class DB_PARTICIPANT
 		ps_update.executeUpdate( );
 	}
 	
-	public void deleteParticipant( int idp ) throws Exception
+	public void deleteEpreuve( int idp ) throws Exception
 	{
 		ps_delete.setInt( 1 , idp );
 		ps_delete.executeUpdate( );
@@ -84,26 +84,26 @@ public class DB_PARTICIPANT
 	
 	// cette mÃ©thode ne peut Ãªtre utilisÃ©e que dans cette classe
 	// elle ne peut pas Ãªtre utilisÃ©e dans d'autres classes
-	private ArrayList< Participant > getParticipants( String req ) throws Exception
+	private ArrayList< Epreuve > getEpreuves( String req ) throws Exception
 	{
-		// pre-condition: req est de la forme "SELECT * FROM Participant ..."
-		// car il s'agit d'extraire un ensemble de participants
+		// pre-condition: req est de la forme "SELECT * FROM Epreuve ..."
+		// car il s'agit d'extraire un ensemble de epreuves
 		
-		Participant              par;
-		ArrayList< Participant > apar = null;
+		Epreuve              par;
+		ArrayList< Epreuve > apar = null;
 		
-		apar = new ArrayList< Participant >( );
+		apar = new ArrayList< Epreuve >( );
 		Statement st = conn.createStatement( );
 		ResultSet rs = st.executeQuery( req );
 		while( rs.next( ) ) {
-			par = new Participant( rs.getInt( "idp" ) , rs.getString( "nom" ) , rs.getInt( "age" ) );
+			par = new Epreuve( rs.getInt( "idp" ) , rs.getString( "nom" ) , rs.getInt( "age" ) );
 			apar.add( par );
 		}
 		return apar;
 	}
 	
-	public ArrayList< Participant > getParticipants( ) throws Exception
+	public ArrayList< Epreuve > getEpreuves( ) throws Exception
 	{
-		return getParticipants( "select * from participant" );
+		return getEpreuves( "select * from epreuve" );
 	}
 }
