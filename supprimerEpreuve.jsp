@@ -1,45 +1,27 @@
-<%-- ======================================
-		participants.jsp
-========================================= --%>
+<%@ page import="java.util.List" %>
+<%@ page import="beans.Epreuve" %>
+<jsp:include page = "ihm/miseEnPageSPORT1.jsp" >
+    <jsp:param name = "titre" value = "Supprimer une epreuve " />
+</jsp:include >
 
-<%@ page import="beans.Participant,java.util.List" %>
 
-<jsp:include page="ihm/miseEnPageSPORT1.jsp">
-    <jsp:param name="titre" value="SUPPRESSION D'UNE EPPREUVE"/>
-</jsp:include>
+<%
 
-<%  List<Participant> participants = (List<Participant>) request.getAttribute("participants");
-    String coul = "lignePaire";
-    Integer idp = 0;
-    if (participants != null) {
-        if ((request.getParameter("idp")) != null)
-            idp = Integer.parseInt(request.getParameter("idp"));
+    out.println( "<form action = 'controleur' method = 'get'>" );
+    out.println( "<input type = 'hidden' name = 'cmd' value = 'supprimerEpreuve' >" );
 
-        String href1 = "controleur?cmd=participants";
-        String href2 = "controleur?cmd=participantsNom&idp=" + idp;
-        String href3 = "controleur?cmd=participantsAge&idp=" + idp;
-        out.println("\t\t\t\t<table>");
-        out.println("\t\t\t\t\t<tr class=\"enteteTableau\">");
-        out.println("\t\t\t\t\t\t<th><a href=\"" + href1 + "\">idp</a></th>");
-        out.println("\t\t\t\t\t\t<th><a href=\"" + href2 + "\">nom</a></th>");
-        out.println("\t\t\t\t\t\t<th><a href=\"" + href3 + "\">age</a></th>");
-        out.println("\t\t\t\t\t</tr>");
-        for (Participant p : participants) {
-            coul = (coul.equals("lignePaire")) ? "ligneImpaire" : "lignePaire";
-            if (idp == p.getIdp()) {
-                coul = "ligneId";
-                out.println("<tr class=\"" + coul + "\">");
-            } else
-                out.println("\t\t\t\t\t<tr class=\"" + coul + "\">");
-            String href = "controleur?cmd=inscription&idp=" + p.getIdp();
-            out.println("\t\t\t\t\t\t<td><a href=" + href + ">" + p.getIdp() + "</a></td>");
-            out.println("\t\t\t\t\t\t<td>" + p.getNom() + "</td>");
-            out.println("\t\t\t\t\t\t<td>" + p.getAge() + "</td>");
-            out.println("\t\t\t\t\t</tr>");
-        }
-    }
-    out.println("\t\t\t\t</table>");
-    // ==============  CORPS =================================================
+    out.print("<select name=\"menu_destination\">");
+
+    List<Epreuve> epreuves = (List<Epreuve>) request.getAttribute("epreuves");
+
+    for (int i=0; i<epreuves.size();i++)
+        out.print("<option value=\"" + epreuves.get(i) + "\">" + epreuves.get(i).getNom() + "</option>");
+
+    out.print("</select>");
+
+    out.println( "<input type = 'submit' value='Supprimer'>>" );
+    out.println( "</form>" );
+
 %>
 
-<jsp:include page="ihm/miseEnPageSPORT2.jsp"/>
+<jsp:include page = "ihm/miseEnPageSPORT2.jsp" />

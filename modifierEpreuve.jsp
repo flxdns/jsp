@@ -8,7 +8,7 @@
 <%
     List<Epreuve> epreuves = (List<Epreuve>) request.getAttribute("epreuves");
     out.println( "<form action = 'controleur' method = 'get'>" );
-    out.println( "<input type = 'hidden' name = 'cmd' value = 'modifierEpreuveForm' >" );
+    out.println( "<input type = 'hidden' name = 'cmd' value = 'CommandeModifierEpreuveForm' >" );
     out.println( "<table>" );
 
     out.print( "<tr>" );

@@ -12,14 +12,14 @@
 
     out.print("<select name=\"menu_destination\">");
 
-    List<Participant> participants = (List<Participant>)request.getAttribute("epreuves");
+    List<Participant> participants = (List<Participant>)request.getAttribute("participants");
 
     for (int i=0; i<participants.size();i++)
         out.print("<option value=\"" + participants.get(i) + "\">" + participants.get(i).getNom() + "</option>");
 
     out.print("</select>");
 
-    out.println( "<input type = 'submit'>" );
+    out.println( "<input type = 'submit' value='Supprimer'>" );
     out.println( "</form>" );
 
 %>
