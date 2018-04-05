@@ -1,12 +1,12 @@
 package cmd.participant;
 
-import bdd.DBS;
-import bdd.DB_INSCRIPTION;
-import bdd.DB_PARTICIPANT;
-import cmd.Commande;
+        import bdd.DBS;
+        import bdd.DB_INSCRIPTION;
+        import bdd.DB_PARTICIPANT;
+        import cmd.Commande;
 
-import javax.servlet.http.HttpServletRequest;
-import java.util.ArrayList;
+        import javax.servlet.http.HttpServletRequest;
+        import java.util.ArrayList;
 
 public class CommandeParticipants implements Commande {
     private final String next;
@@ -21,8 +21,8 @@ public class CommandeParticipants implements Commande {
         DB_INSCRIPTION db_inscription = dbs.getDB_INSCRIPTION();
 
         try {
-            paramHttpServletRequest.getParameter("idp");
-            db_participant.deleteParticipant(Integer.parseInt(paramHttpServletRequest.getParameter("idp")));
+            paramHttpServletRequest.getParameter("numparticipant");
+            db_participant.deleteParticipant(Integer.parseInt(paramHttpServletRequest.getParameter("numparticipant")));
         }
         catch(Exception ignored){}
 
