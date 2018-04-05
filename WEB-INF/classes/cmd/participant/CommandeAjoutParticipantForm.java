@@ -10,12 +10,12 @@ import javax.servlet.http.HttpServletRequest;
 public class CommandeAjoutParticipantForm implements Commande
 {
 	private final String next;
-	
+
 	public CommandeAjoutParticipantForm( String next )
 	{
 		this.next = next;
 	}
-	
+
 	public String execute( HttpServletRequest paramHttpServletRequest ) throws Exception
 	{
 		DBS            dbs            = DBS.getInstance( );

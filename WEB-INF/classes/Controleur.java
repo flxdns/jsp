@@ -26,7 +26,7 @@ public class Controleur extends HttpServlet {
     //Nom de la commande de login (IMPOSE DANS CETTE VERSION)
     public static final String CMD_LOGIN = "login";
 
-    //Liste des valeurs possibles des droits associés aux pages
+	//Liste des valeurs possibles des droits associés aux pages
     public static final String ALL = "all";
     public static final String ADMIN = "admin";
 
@@ -84,7 +84,7 @@ public class Controleur extends HttpServlet {
 		if (! cmd.equals(CMD_LOGIN)) {
 			String droitCmd = mapDroits.get(cmd); //on récupère le droit associé à  la commande
 			req.setAttribute("droitCmd",droitCmd); //on le transmet dans la requête
-			//on délègue le controle à  la servlet de controle de session 
+			//on délègue le controle à  la servlet de controle de session
 			RequestDispatcher rdSession = req.getRequestDispatcher(SERVLET_CONTROLE_SESSION);
 			rdSession.include(req,res);
 		}
