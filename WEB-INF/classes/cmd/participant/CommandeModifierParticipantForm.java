@@ -22,9 +22,9 @@ public class CommandeModifierParticipantForm implements Commande
 		DBS            dbs            = DBS.getInstance( );
 		DB_PARTICIPANT db_participant = dbs.getDB_PARTICIPANT( );
 		
-		int i = db_participant.insertParticipant( new Participant( 0 , paramHttpServletRequest.getParameter( "nom" ) ,
+		db_participant.updateParticipant( new Participant( Integer.parseInt(paramHttpServletRequest.getParameter( "idp" )) , paramHttpServletRequest.getParameter( "nom" ) ,
 		                                                           Integer.parseInt( paramHttpServletRequest.getParameter( "age" ) ) ) );
-		
+        System.out.println("Modification du participant");
 		ArrayList participants = db_participant.getParticipants( );
 		paramHttpServletRequest.setAttribute( "participants" , participants );
 		return next;
