@@ -1,10 +1,10 @@
 <jsp:include page = "ihm/miseEnPageSPORT1.jsp" >
-	<jsp:param name = "titre" value = "Ajouter un participant" />
+	<jsp:param name = "titre" value = "Ajouter une inscription" />
 </jsp:include >
 
 
 <% out.println( "<form action = 'controleur' method = 'get'>" );
-    out.println("<input type = 'hidden' name = 'cmd' value = 'ajoutParticipantForm' >");
+    out.println("<input type = 'hidden' name = 'cmd' value = 'ajoutInscriptionForm' >");
 	out.println( "<table>" );
 
     out.print( "<tr>" );

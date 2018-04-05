@@ -51,7 +51,7 @@
     out.println( "</td>" );
 
     out.println( "<td>" );
-    out.println( "<input type=\"number\" name=\"tarifclub\" requierd>" );
+    out.println( "<input type=\"number\" name=\"tarifclub\" min='0' requierd>" );
     out.println( "</td>" );
 
     out.println( "</tr>" );
