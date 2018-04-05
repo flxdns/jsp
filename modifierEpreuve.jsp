@@ -40,6 +40,7 @@
         String categ = "";
         Date  date = null;
         double tarifClub = 0, tarifNonClub = 0;
+        int ide = Integer.parseInt(request.getParameter("emodify"));
         //Récupération de l'epreuve actuelle
         for ( Epreuve e : epreuves)
             if ( e.getIde() == Integer.parseInt(request.getParameter("emodify")) ) {
@@ -52,6 +53,7 @@
 
         out.println("<form action = 'controleur' method = \"get\">");
         out.println("<input type = \"hidden\" name = \"cmd\" value = \"modifierEpreuveForm\" >");
+        out.println( "<input type = 'hidden' name = 'ide' value = '" + ide + "'>" );
         out.println("<table>");
         out.print("<tr>");
 
