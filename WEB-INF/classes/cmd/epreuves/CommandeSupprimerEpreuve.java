@@ -27,8 +27,7 @@ public class CommandeSupprimerEpreuve implements Commande
 		ArrayList alInscription = dbi.getInscriptions();
 		ArrayList alEpreuve = dbe.getEpreuves();
 
-		paramHttpServletRequest.setAttribute("epreuves", alEpreuve);
-		paramHttpServletRequest.setAttribute("inscriptions", alInscription);
+		dbe.deleteEpreuve((int)paramHttpServletRequest.getAttribute("numparticipant"));
 
 		return next;
 	}
