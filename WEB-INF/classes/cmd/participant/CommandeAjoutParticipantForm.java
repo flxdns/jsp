@@ -21,7 +21,7 @@ public class CommandeAjoutParticipantForm implements Commande
 		DBS            dbs            = DBS.getInstance( );
 		DB_PARTICIPANT db_participant = dbs.getDB_PARTICIPANT( );
 		
-		db_participant.insertParticipant( new Participant( - 1 , paramHttpServletRequest.getParameter( "nom" ) ,
+		db_participant.insertParticipant( new Participant( 0 , paramHttpServletRequest.getParameter( "nom" ) ,
 		                                                   Integer.parseInt( paramHttpServletRequest.getParameter( "age" ) ) ) );
 		return next;
 	}

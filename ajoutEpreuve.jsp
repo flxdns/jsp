@@ -13,7 +13,7 @@
     out.println( "</td>" );
 
     out.println( "<td>" );
-    out.println( "<input type=\"text\" name=\"nom\">" );
+    out.println( "<input type=\"text\" name=\"nom\" requierd>" );
     out.println( "</td>" );
 
     out.print( "</tr>" );
@@ -25,7 +25,9 @@
     out.println( "</td>" );
 
     out.println( "<td>" );
-    out.println( "<input type=\"text\" name=\"categ\">" );
+    out.println(
+            "<select name=\"categ\" requierd>\n" + "\n" + "           <option value=\"club\">Club</option>\n" + "\n" +
+            "           <option value=\"exterieur\">Exterieur</option>\n" + "\n" + "       </select>" );
     out.println( "</td>" );
 
     out.println( "</tr>" );
@@ -37,7 +39,7 @@
     out.println( "</td>" );
 
     out.println( "<td>" );
-    out.println( "<input type=\"date\" name=\"datep\">" );
+    out.println( "<input type=\"date\" name=\"datep\" requierd>" );
     out.println( "</td>" );
 
     out.println( "</tr>" );
@@ -49,7 +51,7 @@
     out.println( "</td>" );
 
     out.println( "<td>" );
-    out.println( "<input type=\"number\" name=\"tarifclub\">" );
+    out.println( "<input type=\"number\" name=\"tarifclub\" requierd>" );
     out.println( "</td>" );
 
     out.println( "</tr>" );
@@ -61,7 +63,7 @@
     out.println( "</td>" );
 
     out.println( "<td>" );
-    out.println( "<input type=\"number\" name=\"tarifnonclub\">" );
+    out.println( "<input type=\"number\" name=\"tarifnonclub\" requierd>" );
     out.println( "</td>" );
 
     out.println( "</tr>" );
