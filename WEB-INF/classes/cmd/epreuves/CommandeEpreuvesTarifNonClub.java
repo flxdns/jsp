@@ -1,11 +1,13 @@
 package cmd.epreuves;
+
 import bdd.DBS;
 import bdd.DB_EPREUVE;
+import cmd.Commande;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 
-public class CommandeEpreuvesTarifNonClub
+public class CommandeEpreuvesTarifNonClub implements Commande
 {
 	private final String next;
 	
@@ -16,8 +18,8 @@ public class CommandeEpreuvesTarifNonClub
 	
 	public String execute( HttpServletRequest httpServletRequest ) throws Exception
 	{
-		DBS        dbs             = DBS.getInstance( );
-		DB_EPREUVE db_epreuve      = dbs.getDB_EPREUVE( );
+		DBS        dbs                    = DBS.getInstance( );
+		DB_EPREUVE db_epreuve             = dbs.getDB_EPREUVE( );
 		ArrayList  epreuvesByTarifNonClub = db_epreuve.trierEpreuvesByTarifNonClub( );
 		httpServletRequest.setAttribute( "epreuves" , epreuvesByTarifNonClub );
 		return this.next;

@@ -120,4 +120,14 @@ public class DB_INSCRIPTION
 	{
 		return getInscriptions( "select * from inscription" );
 	}
+	
+	public ArrayList< Inscription > getInscriptionsByIde( )
+	{
+		return getInscriptions( "select * from inscription order by ide" );
+	}
+	
+	public ArrayList< Inscription > getInscriptionsByCategTarif( )
+	{
+		return getInscriptions( "select * from inscription order by categtarif" );
+	}
 }

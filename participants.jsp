@@ -16,9 +16,9 @@
 		if((request.getParameter("idp")) != null)
 			idp = Integer.parseInt(request.getParameter("idp"));
 
-		String href1 = "controleur?cmd=participantId&idp=" + idp;
-		String href2 = "controleur?cmd=participantNom&idp=" + idp;
-		String href3 = "controleur?cmd=participantAge&idp=" + idp;
+		String href1 = "controleur?cmd=participants";
+		String href2 = "controleur?cmd=participantsNom&idp=" + idp;
+		String href3 = "controleur?cmd=participantsAge&idp=" + idp;
 		out.println("\t\t\t\t<table>");
 		out.println("\t\t\t\t\t<tr class=\"enteteTableau\">");
 		out.println("\t\t\t\t\t\t<th><a href=\"" + href1 + "\">idp</a></th>");

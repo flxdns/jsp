@@ -19,7 +19,7 @@
 		ide = Integer.parseInt(request.getParameter("ide"));
 
 		out.println("<table>");
-		String href1 = "controleur?cmd=epreuvesId&ide=" + ide;
+		String href1 = "controleur?cmd=epreuves";
 		String href2 = "controleur?cmd=epreuvesNom&ide=" + ide;
 		String href3 = "controleur?cmd=epreuvesCateg&ide=" + ide;
 		String href4 = "controleur?cmd=epreuvesDateP&ide=" + ide;

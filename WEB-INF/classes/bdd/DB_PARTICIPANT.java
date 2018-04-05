@@ -111,4 +111,14 @@ public class DB_PARTICIPANT
 	{
 		return getParticipants( "select * from participant" );
 	}
+	
+	public ArrayList< Participant > getParticipantsByNom( ) throws Exception
+	{
+		return getParticipants( "select * from participant order by nom" );
+	}
+	
+	public ArrayList< Participant > getParticipantsByAge( ) throws Exception
+	{
+		return getParticipants( "select * from participant order by age" );
+	}
 }

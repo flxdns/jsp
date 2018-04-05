@@ -139,26 +139,26 @@ public class DB_EPREUVE
 	}
 	
 	public ArrayList<Epreuve> trierEpreuvesByNom() throws Exception {
-		return this.getEpreuves("select * from sport_epreuve order by nom");
+		return this.getEpreuves("select * from epreuve order by nom");
 	}
 	
 	public ArrayList<Epreuve> trierEpreuvesByIdE() throws Exception {
-		return this.getEpreuves("select * from sport_epreuve order by ide");
+		return this.getEpreuves("select * from epreuve order by ide");
 	}
 	
 	public ArrayList<Epreuve> trierEpreuvesByCateg() throws Exception {
-		return this.getEpreuves("select * from sport_epreuve order by categ");
+		return this.getEpreuves("select * from epreuve order by categ");
 	}
 	
 	public ArrayList<Epreuve> trierEpreuvesByDateP() throws Exception {
-		return this.getEpreuves("select * from sport_epreuve order by datep");
+		return this.getEpreuves("select * from epreuve order by datep");
 	}
 	
 	public ArrayList<Epreuve> trierEpreuvesByTarifClub() throws Exception {
-		return this.getEpreuves("select * from sport_epreuve order by tarifclub");
+		return this.getEpreuves("select * from epreuve order by tarifclub");
 	}
 	
 	public ArrayList<Epreuve> trierEpreuvesByTarifNonClub() throws Exception {
-		return this.getEpreuves("select * from sport_epreuve order by tarifnonclub");
+		return this.getEpreuves("select * from epreuve order by tarifnonclub");
 	}
 }

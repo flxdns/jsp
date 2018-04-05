@@ -1,11 +1,12 @@
 package cmd.epreuves;
 import bdd.DBS;
 import bdd.DB_EPREUVE;
+import cmd.Commande;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 
-public class CommandeEpreuvesCateg
+public class CommandeEpreuvesCateg implements Commande
 {
 	private final String next;
 	

@@ -113,9 +113,38 @@
     </context-param>
     <!-- fin des epreuves -->
 
+    <!-- pour les participants -->
     <context-param>
         <param-name>cmd-participants</param-name>
-        <param-value>cmd.CommandeParticipants;participants.jsp;all</param-value>
+        <param-value>cmd.participant.CommandeParticipants;participants.jsp;all</param-value>
     </context-param>
+
+    <context-param>
+        <param-name>cmd-participantsNom</param-name>
+        <param-value>cmd.participant.CommandeParticipantsNom;participants.jsp;all</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>cmd-participantsAge</param-name>
+        <param-value>cmd.participant.CommandeParticipantsAge;participants.jsp;all</param-value>
+    </context-param>
+    <!-- fin des participants -->
+
+    <!-- pour les inscriptions -->
+    <context-param>
+        <param-name>cmd-inscriptions</param-name>
+        <param-value>cmd.participant.CommandeParticipants;inscriptions.jsp;all</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>cmd-inscriptionsIde</param-name>
+        <param-value>cmd.participant.CommandeParticipantsNom;inscriptions.jsp;all</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>cmd-inscriptionsCategTarif</param-name>
+        <param-value>cmd.participant.CommandeParticipantsAge;inscriptions.jsp;all</param-value>
+    </context-param>
+    <!-- fin des inscriptions -->
 
 </web-app>
