@@ -134,6 +134,11 @@
         <param-value>cmd.NullCommande;ajoutParticipant.jsp;admin</param-value>
     </context-param>
 
+    <context-param>
+        <param-name>cmd-ajouterParticipant</param-name>
+        <param-value>cmd.participant.CommandeAjoutParticipant;ajoutParticipant.jsp;admin</param-value>
+    </context-param>
+
     <!-- fin des participants -->
 
     <!-- pour les inscriptions -->
