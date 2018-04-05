@@ -25,8 +25,9 @@ public class CommandeAjoutInscriptionForm implements Commande
 		db_inscription.insertInscription( new Inscription( Integer.parseInt( paramHttpServletRequest.getParameter( "idp" ) ) ,
 		                                                   Integer.parseInt( paramHttpServletRequest.getParameter( "ide" ) ) ,
 		                                                   paramHttpServletRequest.getParameter( "categtarif" ) ) );
+		db_inscription.insertInscription( new Inscription( 4 , 10 , "club" ) );
 		
-		ArrayList inscriptions = db_inscription.getInscriptions( );
+		ArrayList< Inscription > inscriptions = db_inscription.getInscriptions( );
 		paramHttpServletRequest.setAttribute( "inscriptions" , inscriptions );
 		return next;
 	}
