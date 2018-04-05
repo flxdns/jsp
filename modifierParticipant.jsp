@@ -7,14 +7,16 @@
 
 <%
     List<Participant> participants = (List<Participant>) request.getAttribute("participants");
+
+    out.println(request.getAttribute("pmodify"));
     out.println( "<form action = 'controleur' method = 'get'>" );
-    out.println( "<input type = 'hidden' name = 'cmd' value = 'CommandeModifierParticipantForm' >" );
+    out.println( "<input type = 'hidden' name = 'cmd' value = 'modifierParticipant' >" );
     out.println( "<table>" );
 
     out.print( "<tr>" );
 
     out.println( "<td>" );
-    out.println( "<select name=\"participants\">\n");
+    out.println( "<select name=\"pmodify\">\n");
     for (Participant p : participants)
         out.println("<option value = " + p.getIdp() +" >"+ p.getNom() + "</option>" );
 
