@@ -139,17 +139,17 @@
     <!-- pour les inscriptions -->
     <context-param>
         <param-name>cmd-inscriptions</param-name>
-        <param-value>cmd.participant.CommandeParticipants;inscriptions.jsp;all</param-value>
+        <param-value>cmd.inscriptions.CommandeInscriptions;inscriptions.jsp;all</param-value>
     </context-param>
 
     <context-param>
         <param-name>cmd-inscriptionsIde</param-name>
-        <param-value>cmd.participant.CommandeParticipantsNom;inscriptions.jsp;all</param-value>
+        <param-value>cmd.inscriptions.CommandeInscriptionsIde;inscriptions.jsp;all</param-value>
     </context-param>
 
     <context-param>
         <param-name>cmd-inscriptionsCategTarif</param-name>
-        <param-value>cmd.participant.CommandeParticipantsAge;inscriptions.jsp;all</param-value>
+        <param-value>cmd.inscriptions.CommandeInscriptionsCategTarif;inscriptions.jsp;all</param-value>
     </context-param>
     <!-- fin des inscriptions -->
 

@@ -16,7 +16,7 @@
         if( ( request.getParameter( "idp" ) ) != null ) idp = Integer.parseInt( request.getParameter( "idp" ) );
 
         String href1 = "controleur?cmd=inscriptions";
-        String href2 = "controleur?cmd=inscriptionsIde&idp=" + idp;
+        String href2 = "controleur?cmd=inscriptionsIde&ide=" + idp;
         String href3 = "controleur?cmd=inscriptionsCategTarif&idp=" + idp;
         out.println( "<table>" );
         out.println( "<tr class=\"enteteTableau\">" );
@@ -32,7 +32,7 @@
             }
             else out.println( "<tr class=\"" + coul + "\">" );
             String hrefIdp = "controleur?cmd=participants&idp=" + i.getIdp( );
-            String hrefIde = "controleur?cmd=epreuve&ide=" + i.getIde( );
+            String hrefIde = "controleur?cmd=epreuves&ide=" + i.getIde( );
             out.println( "<td><a href=" + hrefIdp + ">" + i.getIdp( ) + "</a></td>" );
             out.println( "<td><a href=" + hrefIde + ">" + i.getIde( ) + "</a></td>" );
             out.println( "<td>" + i.getCategTarif( ) + "</td>" );
