@@ -131,14 +131,13 @@
 
     <context-param>
         <param-name>cmd-ajoutParticipant</param-name>
-        <param-value>cmd.NullCommande;ajoutParticipant.jsp;admin</param-value>
-    </context-param>
-
-    <context-param>
-        <param-name>cmd-ajouterParticipant</param-name>
         <param-value>cmd.participant.CommandeAjoutParticipant;ajoutParticipant.jsp;admin</param-value>
     </context-param>
 
+    <!--<context-param>
+        <param-name>cmd-MAJParticipant</param-name>
+        <param-value>cmd.participant.CommandeMajParticipant;MAJParticipant.jsp;admin</param-value>
+    </context-param>   -->
     <!-- fin des participants -->
 
     <!-- pour les inscriptions -->
@@ -156,6 +155,11 @@
         <param-name>cmd-inscriptionsCategTarif</param-name>
         <param-value>cmd.inscriptions.CommandeInscriptionsCategTarif;inscriptions.jsp;all</param-value>
     </context-param>
+
+    <!--<context-param>
+        <param-name>cmd-MAJinscription</param-name>
+        <param-value>cmd.inscriptions.CommandeMAJInscriptions.jsp;all</param-value>
+    </context-param>-->
     <!-- fin des inscriptions -->
 
 </web-app>
