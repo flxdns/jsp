@@ -4,7 +4,7 @@
 
 
 <% out.println("<form action = 'controleur' method = 'get'>");
-    out.println("<input type = 'hidden' name = 'cmd' value = 'ajoutParticipantForm' >");
+    out.println("<input type = 'hidden' name = 'cmd' value = 'ajouterInscriptiontForm' >");
     out.println("<table>");
 
     out.print("<tr>");
