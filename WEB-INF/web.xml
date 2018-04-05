@@ -134,6 +134,10 @@
         <param-value>cmd.epreuves.CommandeEpreuves;modifierEpreuve.jsp;admin</param-value>
     </context-param>
 
+    <context-param>
+        <param-name>cmd-modifierEpreuveForm</param-name>
+        <param-value>cmd.epreuves.CommandeModifierEpreuveForm;epreuves.jsp;admin</param-value>
+    </context-param>
     <!-- fin des epreuves -->
 
     <!-- pour les participants -->

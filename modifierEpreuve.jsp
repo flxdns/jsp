@@ -1,5 +1,6 @@
 <%@ page import="beans.Epreuve" %>
 <%@ page import="java.util.List" %>
+<%@ page import="java.sql.Date" %>
 <jsp:include page = "ihm/miseEnPageSPORT1.jsp" >
     <jsp:param name = "titre" value = "Modifier une epreuve :" />
 </jsp:include >
@@ -34,8 +35,25 @@
     }
     else
     {
+        String [] tabCateg = {"enfant","ado","adulte"};
+        String nom = "";
+        String categ = "";
+        Date  date = null;
+        double tarifClub = 0, tarifNonClub = 0;
+        int ide = Integer.parseInt(request.getParameter("emodify"));
+        //Récupération de l'epreuve actuelle
+        for ( Epreuve e : epreuves)
+            if ( e.getIde() == Integer.parseInt(request.getParameter("emodify")) ) {
+                nom = e.getNom();
+                categ = e.getCateg();
+                tarifClub = e.getTarifClub();
+                tarifNonClub = e.getTarifNonClub();
+                date = e.getDatep();
+            }
+
         out.println("<form action = 'controleur' method = \"get\">");
-        out.println("<input type = \"hidden\" name = \"cmd\" value = \"ajouterEpreuveForm\" >");
+        out.println("<input type = \"hidden\" name = \"cmd\" value = \"modifierEpreuveForm\" >");
+        out.println( "<input type = 'hidden' name = 'ide' value = '" + ide + "'>" );
         out.println("<table>");
         out.print("<tr>");
 
@@ -44,7 +62,7 @@
         out.println("</td>");
 
         out.println("<td>");
-        out.println("<input type=\"text\" name=\"nom\" required>");
+        out.println("<input type=\"text\" name=\"nom\" value = '" + nom + "' required>");
         out.println("</td>");
 
         out.print("</tr>");
@@ -56,8 +74,13 @@
         out.println("</td>");
 
         out.println("<td>");
-        out.println("<select name=\"categ\" required>\n" + "\n" + "           <option value=\"enfant\">enfant</option>\n" + "\n" +
-                        "           <option value=\"ado\">ado</option>\n" + " <option value=\"adulte\">adulte</option>\n" + "\n" + "       </select>");
+
+        out.println("<select name=\"categ\" required>\n");
+        for ( String c : tabCateg ) {
+            out.print("<option value='" + c + "'");
+            if ( c.equals(categ) ) out.print("selected='selected'");
+            out.print("> " + c + "</option>");
+        }
         out.println("</td>");
 
         out.println("</tr>");
@@ -69,7 +92,7 @@
         out.println("</td>");
 
         out.println("<td>");
-        out.println("<input type=\"date\" name=\"datep\" required>");
+        out.println("<input type=\"date\" name=\"datep\" value = '" + Date.valueOf(String.valueOf(date)) + "'required>");
         out.println("</td>");
 
         out.println("</tr>");
@@ -81,7 +104,7 @@
         out.println("</td>");
 
         out.println("<td>");
-        out.println("<input type=\"number\" name=\"tarifclub\" min='0' required>");
+        out.println("<input type=\"number\" name=\"tarifclub\" min='0' value = '" +  tarifClub + "'required>");
         out.println("</td>");
 
         out.println("</tr>");
@@ -93,7 +116,7 @@
         out.println("</td>");
 
         out.println("<td>");
-        out.println("<input type=\"number\" name=\"tarifnonclub\" required>");
+        out.println("<input type=\"number\" name=\"tarifnonclub\" min = 1 value = '" + tarifNonClub + "'required>");
         out.println("</td>");
 
         out.println("</tr>");
