@@ -3,7 +3,7 @@
 </jsp:include >
 
 
-<% out.println( "<action = 'controleur' method = 'get'>" );
+<% out.println( "<form action = 'controleur' method = 'get'>" );
     out.println("<input type = 'hidden' name = 'cmd' value = 'ajoutParticipantForm' >");
 	out.println( "<table>" );
 
