@@ -19,7 +19,7 @@
 
     out.print("</select>");
 
-    out.println( "<input type = 'submit' value='Supprimer'>>" );
+    out.println( "<input type = 'submit' value='Supprimer'>" );
     out.println( "</form>" );
 
 %>
