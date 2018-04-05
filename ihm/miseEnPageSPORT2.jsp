@@ -1,5 +1,5 @@
-	</div> <!-- fin contenu -->
-	</div> <!-- fin milieu -->
+</div> <!-- fin contenu -->
+</div> <!-- fin milieu -->
 
 </body>
 </html>

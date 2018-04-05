@@ -1,18 +1,17 @@
 package cmd;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
+import javax.servlet.http.HttpServletRequest;
 
 // Cette cde ne fait rien sinon de passer la main a next
 
 public class NullCommande implements Commande {
-  private String next;
+    private String next;
 
-  public NullCommande(String next) {
+    public NullCommande(String next) {
         this.next = next;
-  }
+    }
 
-  public String execute(HttpServletRequest req) throws Exception {
-    return next;
-  }
+    public String execute(HttpServletRequest req) throws Exception {
+        return next;
+    }
 }
