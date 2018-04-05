@@ -6,6 +6,7 @@ import beans.Participant;
 import cmd.Commande;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 
 public class CommandeAjoutParticipantForm implements Commande
 {
@@ -21,8 +22,14 @@ public class CommandeAjoutParticipantForm implements Commande
 		DBS            dbs            = DBS.getInstance( );
 		DB_PARTICIPANT db_participant = dbs.getDB_PARTICIPANT( );
 		
-		db_participant.insertParticipant( new Participant( 0 , paramHttpServletRequest.getParameter( "nom" ) ,
-		                                                   Integer.parseInt( paramHttpServletRequest.getParameter( "age" ) ) ) );
+		int i = db_participant.insertParticipant( new Participant( 0 , paramHttpServletRequest.getParameter( "nom" ) ,
+		                                                           Integer.parseInt( paramHttpServletRequest.getParameter( "age" ) ) ) );
+		
+		ArrayList participants = db_participant.getParticipants( );
+		paramHttpServletRequest.setAttribute( "participants" , participants );
+		paramHttpServletRequest.removeAttribute( "nom"  );
+		paramHttpServletRequest.removeAttribute( "age"  );
+		paramHttpServletRequest.setAttribute( "ide", i );
 		return next;
 	}
 }
