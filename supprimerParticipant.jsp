@@ -8,7 +8,7 @@
 <%
 
     out.println( "<form action = 'controleur' method = 'get'>" );
-    out.println( "<input type = 'hidden' name = 'cmd' value = 'delParticipant' >" );
+    out.println( "<input type = 'hidden' name = 'cmd' value = 'supprimerParticipant' >" );
 
     out.print("<select name=\"numparticipant\">");
 

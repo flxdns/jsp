@@ -1,8 +1,6 @@
 package cmd.epreuves;
 
-import bdd.DBS;
-import bdd.DB_EPREUVE;
-import bdd.DB_INSCRIPTION;
+import bdd.*;
 import cmd.Commande;
 
 import javax.servlet.http.HttpServletRequest;
@@ -21,7 +19,14 @@ public class CommandeEpreuves implements Commande
 	{
 		DBS            dbs = DBS.getInstance( );
 		DB_EPREUVE     dbe = dbs.getDB_EPREUVE( );
-		
+
+		try {
+			System.out.println("Suppression de l'indice" + Integer.parseInt(paramHttpServletRequest.getParameter("numepreuve") ));
+			paramHttpServletRequest.getParameter("numepreuve");
+			dbe.deleteEpreuve(Integer.parseInt(paramHttpServletRequest.getParameter("numepreuve")));
+		}
+		catch(Exception ignored){ }
+
 		ArrayList alEpreuve     = dbe.getEpreuves( );
 		
 		paramHttpServletRequest.setAttribute( "epreuves" , alEpreuve );
