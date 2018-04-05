@@ -10,12 +10,12 @@
     out.println( "<form action = 'controleur' method = 'get'>" );
     out.println( "<input type = 'hidden' name = 'cmd' value = 'supprimerEpreuve' >" );
 
-    out.print("<select name=\"menu_destination\">");
+    out.print("<select name=\"numepreuve\">");
 
     List<Epreuve> epreuves = (List<Epreuve>) request.getAttribute("epreuves");
 
-    for (int i=0; i<epreuves.size();i++)
-        out.print("<option value=\"" + epreuves.get(i) + "\">" + epreuves.get(i).getNom() + "</option>");
+    for (Epreuve e : epreuves )
+        out.print("<option value=\"" + e.getIde() + "\">" + e.getNom() + "</option>");
 
     out.print("</select>");
 

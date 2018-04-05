@@ -14,9 +14,9 @@
     out.print( "<tr>" );
 
     out.println( "<td>" );
-    out.println( "<select id=\"participants\">\n");
+    out.println( "<select name=\"participants\">\n");
     for (Participant p : participants)
-        out.println("<option >"+ p.getNom() + "</option>" );
+        out.println("<option value = " + p.getIdp() +" >"+ p.getNom() + "</option>" );
 
     out.println("</select>" );
     out.println( "</td>" );
@@ -25,7 +25,7 @@
 
     out.println("<tr>");
     out.println("<td>");
-    out.println("<input type = submit >");
+    out.println("<input type = submit value=Modifier>");
     out.println("</td>");
     out.println("</tr>");
     out.println( "</table></form>" );

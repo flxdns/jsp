@@ -25,7 +25,7 @@
 
     out.println("<tr>");
     out.println("<td>");
-    out.println("<input type = submit >");
+    out.println("<input type = submit value=Modifier>");
     out.println("</td>");
     out.println("</tr>");
     out.println( "</table></form>" );
