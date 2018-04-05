@@ -113,13 +113,13 @@ else {
 
             <li ><a href = "controleur?cmd=modifierParticipant" > Modifier participant </a ></li >
             <li ><a href = "controleur?cmd=modifierEpreuve" > Modifier &eacute;preuve </a ></li >
-            <li ><a href = "controleur?cmd=modifierInscription" > Modifier inscription </a ></li >
+            <%--<li ><a href = "controleur?cmd=modifierInscription" > Modifier inscription </a ></li >--%>
 
             <br />
 
             <li ><a href = "controleur?cmd=supprimerParticipant" > Supprimer participant </a ></li >
             <li ><a href = "controleur?cmd=supprimerEpreuve" > Supprimer &eacute;preuve </a ></li >
-            <li ><a href = "controleur?cmd=supprimerInscription" > Supprimer inscription </a ></li >
+            <%--<li ><a href = "controleur?cmd=supprimerInscription" > Supprimer inscription </a ></li >--%>
 
         </ul >
         <%
