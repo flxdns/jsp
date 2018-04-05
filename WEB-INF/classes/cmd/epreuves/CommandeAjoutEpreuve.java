@@ -10,22 +10,23 @@ import java.sql.Date;
 
 public class CommandeAjoutEpreuve implements Commande
 {
-    private final String next;
-    
-    public CommandeAjoutEpreuve( String next )
-    {
-        this.next = next;
-    }
-    
-    public String execute( HttpServletRequest paramHttpServletRequest ) throws Exception
-    {
-        DBS        dbs            = DBS.getInstance( );
-        DB_EPREUVE db_participant = dbs.getDB_EPREUVE( );
-        
-        db_participant.insertEpreuve(
-                new Epreuve( 0 , paramHttpServletRequest.getParameter( "nom" ) , paramHttpServletRequest.getParameter( "categ" ) ,
-                             Date.valueOf( paramHttpServletRequest.getParameter( "datep" ) ) ,
-                             Integer.parseInt( paramHttpServletRequest.getParameter( "tarifclub" ) ) , Integer.parseInt( "tarifnonclub" ) ) );
-        return next;
-    }
+	private final String next;
+	
+	public CommandeAjoutEpreuve( String next )
+	{
+		this.next = next;
+	}
+	
+	public String execute( HttpServletRequest paramHttpServletRequest ) throws Exception
+	{
+		DBS        dbs            = DBS.getInstance( );
+		DB_EPREUVE db_participant = dbs.getDB_EPREUVE( );
+		
+		int i = db_participant.insertEpreuve(
+				new Epreuve( 0 , paramHttpServletRequest.getParameter( "nom" ) , paramHttpServletRequest.getParameter( "categ" ) ,
+				             Date.valueOf( paramHttpServletRequest.getParameter( "datep" ) ) ,
+				             Integer.parseInt( paramHttpServletRequest.getParameter( "tarifclub" ) ) , Integer.parseInt( "tarifnonclub" ) ) );
+		paramHttpServletRequest.setAttribute( "ide" , i );
+		return next;
+	}
 }
