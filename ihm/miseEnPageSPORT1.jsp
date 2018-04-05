@@ -121,6 +121,10 @@ else {
             <li ><a href = "controleur?cmd=supprimerEpreuve" > Supprimer &eacute;preuve </a ></li >
             <%--<li ><a href = "controleur?cmd=supprimerInscription" > Supprimer inscription </a ></li >--%>
 
+            <br />
+
+            <li><a href = "controleur?cmd=epreuveDunParticipant"> Epreuve d'un participant </a></li>
+
         </ul >
         <%
             }

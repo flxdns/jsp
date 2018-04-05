@@ -220,4 +220,14 @@
     </context-param>-->
     <!-- fin des inscriptions -->
 
+    <context-param>
+        <param-name>cmd-epreuveDunParticipant</param-name>
+        <param-value>cmd.participant.CommandeParticipants;epreuveDunParticipant.jsp;all</param-value>
+    </context-param>
+
+    <!--<context-param>
+        <param-name>cmd-epreuveDunParticipantForm</param-name>
+        <param-value>cmd.participant.CommandeEpreuveDunParticipantForm;epreuve.jsp;all</param-value>
+    </context-param>-->
+
 </web-app>
