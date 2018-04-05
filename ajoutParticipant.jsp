@@ -27,7 +27,7 @@
     out.println( "</td>" );
 
     out.println( "<td>" );
-    out.println( "<input type='number' name='age' required min=1 >" );
+    out.println( "<input type='number' name='age' required min=5 >" );
     out.println( "</td>" );
 
     out.println( "</td>" );
