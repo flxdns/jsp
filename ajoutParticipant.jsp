@@ -6,15 +6,6 @@
 <% out.println( "<action = 'controleur' method = \"get\">" );
     out.println("<input type = \"hidden\" name = \"cmd\" value = \"ajoutParticipant\" >");
 	out.println( "<table>" );
-    out.println( "<tr>" );
-    out.println( "<td>" );
-    out.println( "idp" );
-    out.println( "</td>" );
-
-    out.println( "<td>" );
-    out.println( "<input type=\"text\" name=\"idp\">" );
-    out.println( "</td>" );
-    out.print( "</tr>" );
 
     out.print( "<tr>" );
 
