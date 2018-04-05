@@ -4,8 +4,8 @@
 
 
 <% out.println( "<action = 'controleur' method = \"get\">" );
-    out.println("<input type = \"hidden\" name = \"cmd\" value = \"ajoutEpreuve\" >");
-	out.println( "<table>" );
+    out.println( "<input type = \"hidden\" name = \"cmd\" value = \"ajoutEpreuve\" >" );
+    out.println( "<table>" );
     out.print( "<tr>" );
 
     out.println( "<td>" );
@@ -28,8 +28,7 @@
     out.println( "<input type=\"text\" name=\"categ\">" );
     out.println( "</td>" );
 
-    out.println("</tr>");
-
+    out.println( "</tr>" );
 
     out.print( "<tr>" );
 
@@ -38,11 +37,10 @@
     out.println( "</td>" );
 
     out.println( "<td>" );
-    out.println( "<input type=\"text\" name=\"datep\">" );
+    out.println( "<input type=\"date\" name=\"datep\">" );
     out.println( "</td>" );
 
-    out.println("</tr>");
-
+    out.println( "</tr>" );
 
     out.println( "<tr>" );
 
@@ -51,10 +49,10 @@
     out.println( "</td>" );
 
     out.println( "<td>" );
-    out.println( "<input type=\"text\" name=\"tarifclub\">" );
+    out.println( "<input type=\"number\" name=\"tarifclub\">" );
     out.println( "</td>" );
 
-    out.println("</tr>");
+    out.println( "</tr>" );
 
     out.println( "<tr>" );
 
@@ -63,17 +61,16 @@
     out.println( "</td>" );
 
     out.println( "<td>" );
-    out.println( "<input type=\"text\" name=\"tarifnonclub\">" );
+    out.println( "<input type=\"number\" name=\"tarifnonclub\">" );
     out.println( "</td>" );
 
-    out.println("</tr>");
+    out.println( "</tr>" );
 
-    out.println("<tr>");
-	out.println("<td>");
-	out.println("<input type = submit>");
-	out.println("<td>");
-    out.println("</tr>");
-
+    out.println( "<tr>" );
+    out.println( "<td>" );
+    out.println( "<input type = submit>" );
+    out.println( "<td>" );
+    out.println( "</tr>" );
 
     out.println( "</table></form>" );
 %>
