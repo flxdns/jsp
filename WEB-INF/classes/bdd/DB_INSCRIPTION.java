@@ -25,8 +25,8 @@ public class DB_INSCRIPTION {
         try {
             ps_select = conn.prepareStatement("select categtarif from inscription where idp=? && ide=?");
             ps_insert = conn.prepareStatement("insert into inscription values(?,?,?)", ps_insert.RETURN_GENERATED_KEYS);
-            ps_update = conn.prepareStatement("update inscription set categtarif=? where idp=? && ide=?");
-            ps_delete = conn.prepareStatement("delete from inscription where idp=? && ide=?");
+            ps_update = conn.prepareStatement("update inscription set categtarif=? where idp=? && ide=? cascade");
+            ps_delete = conn.prepareStatement("delete from inscription where idp=? && ide=? cascade");
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
