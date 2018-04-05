@@ -23,7 +23,7 @@
         if( ( request.getParameter( "ide" ) ) != null ) ide = Integer.parseInt( request.getParameter( "ide" ) );
 
         if( ( request.getParameter( "nom" ) ) != null ) nom = request.getParameter( "nom" );
-        if( ( request.getParameter( "caetg" ) ) != null ) categ = request.getParameter( "categ" );
+        if( ( request.getParameter( "categ" ) ) != null ) categ = request.getParameter( "categ" );
         if( ( request.getParameter( "datep" ) ) != null ) datep = Date.valueOf( request.getParameter( "datep" ) );
         if( ( request.getParameter( "tarifclub" ) ) != null )
             tarifclub = Double.parseDouble( request.getParameter( "tarifclub" ) );
