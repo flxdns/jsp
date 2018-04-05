@@ -45,9 +45,7 @@ public class ControleSession extends HttpServlet {
 	//Lorsque les 3 mÃ©thodes prÃ©cÃ©dentes seront complÃ©tÃ©es, il faudra
 	//juste enlever les commentaires /* ... */ de la mÃ©thode service.
 	public void service(HttpServletRequest req, HttpServletResponse res) 
-		throws ServletException, IOException { 
-		
-		/* COMMENTAIRES A ENLEVER QUAND LES 3 METHODES PRECEDENTES SONT COMPLETEES
+		throws ServletException, IOException {
 
 		Integer droitUtil = getDroitSession(req);
 		
@@ -70,8 +68,6 @@ public class ControleSession extends HttpServlet {
 				}
 			} //fin if droitCmd = ADMIN
 		} //fin else droitUtil != null
-
-		*/
 
 	} //fin mÃ©thode service
 

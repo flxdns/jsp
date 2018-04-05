@@ -118,7 +118,7 @@ public class DB_INSCRIPTION
 	
 	public ArrayList< Inscription > getInscriptions( )
 	{
-		return getInscriptions( "select * from inscription" );
+		return getInscriptions( "select * from inscription order by idp" );
 	}
 	
 	public ArrayList< Inscription > getInscriptionsByIde( )

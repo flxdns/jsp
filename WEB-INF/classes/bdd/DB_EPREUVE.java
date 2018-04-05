@@ -131,7 +131,7 @@ public class DB_EPREUVE
 	public ArrayList< Epreuve > getEpreuves( )
 	{
 		try {
-			return getEpreuves( "select * from epreuve" );
+			return getEpreuves( "select * from epreuve order by ide" );
 		} catch( Exception e ) {
 			e.printStackTrace( );
 		}

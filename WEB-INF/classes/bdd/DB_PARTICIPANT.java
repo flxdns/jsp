@@ -109,7 +109,7 @@ public class DB_PARTICIPANT
 	
 	public ArrayList< Participant > getParticipants( ) throws Exception
 	{
-		return getParticipants( "select * from participant" );
+		return getParticipants( "select * from participant order by idp" );
 	}
 	
 	public ArrayList< Participant > getParticipantsByNom( ) throws Exception
