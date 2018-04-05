@@ -122,6 +122,11 @@
             <param-value>cmd.epreuves.CommandeAjoutEpreuve;cmd-epreuves;admin</param-value>
     </context-param>
 
+    <!--Supprimer les epreuves-->
+    <context-param>
+        <param-name>cmd-supprimerEpreuve</param-name>
+        <param-value>cmd.NullCommande;supprimerEpreuve.jsp;admin</param-value>
+    </context-param>
 
 
     <!-- fin des epreuves -->
