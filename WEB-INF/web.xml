@@ -140,6 +140,11 @@
         <param-value>cmd.participant.CommandeAjoutParticipant;ajoutParticipant.jsp;admin</param-value>
     </context-param>
 
+    <context-param>
+        <param-name>cmd-ajoutParticipantForm</param-name>
+        <param-value>cmd.participant.CommandeAjoutParticipantForm;participants.jsp;all</param-value>
+    </context-param>
+
     <!--<context-param>
         <param-name>cmd-MAJParticipant</param-name>
         <param-value>cmd.participant.CommandeMajParticipant;MAJParticipant.jsp;admin</param-value>

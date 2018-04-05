@@ -1,10 +1,10 @@
 <jsp:include page = "ihm/miseEnPageSPORT1.jsp" >
-	<jsp:param name = "titre" value = "Ajout d'un participant" />
+	<jsp:param name = "titre" value = "Ajouter un participant" />
 </jsp:include >
 
 
-<% out.println( "<action = 'controleur' method = \"get\">" );
-    out.println("<input type = \"hidden\" name = \"cmd\" value = \"ajoutParticipant\" >");
+<% out.println( "<action = 'controleur' method = 'get'>" );
+    out.println("<input type = 'hidden' name = 'cmd' value = 'ajoutParticipantForm' >");
 	out.println( "<table>" );
 
     out.print( "<tr>" );
@@ -14,7 +14,7 @@
     out.println( "</td>" );
 
     out.println( "<td>" );
-    out.println( "<input type=\"text\" name=\"nom\">" );
+    out.println( "<input type='text' name='nom'>" );
     out.println( "</td>" );
 
     out.print( "</tr>" );
@@ -26,13 +26,13 @@
     out.println( "</td>" );
 
     out.println( "<td>" );
-    out.println( "<input type=\"text\" name=\"age\">" );
+    out.println( "<input type='number' name='age'>" );
     out.println( "</td>" );
 
     out.println( "</td>" );
     out.println("<tr>");
 	out.println("<td>");
-	out.println("<input type = submit>");
+	out.println("<input type = 'submit'>");
 	out.println("<td>");
     out.println("</tr>");
     out.println( "</table></form>" );
