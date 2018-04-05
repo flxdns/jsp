@@ -117,6 +117,13 @@
         <param-value>cmd.NullCommande;ajoutEpreuve.jsp;admin</param-value>
     </context-param>
 
+    <context-param>
+        <param-name>cmd-ajouterEpreuveFrom</param-name>
+            <param-value>cmd.epreuves.CommandeAjoutEpreuve;epreuves.jsp;admin</param-value>
+    </context-param>
+
+
+
     <!-- fin des epreuves -->
 
     <!-- pour les participants -->
