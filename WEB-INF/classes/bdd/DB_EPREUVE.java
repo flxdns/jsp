@@ -137,4 +137,28 @@ public class DB_EPREUVE
 		}
 		return null;
 	}
+	
+	public ArrayList<Epreuve> trierEpreuvesByNom() throws Exception {
+		return this.getEpreuves("select * from sport_epreuve order by nom");
+	}
+	
+	public ArrayList<Epreuve> trierEpreuvesByIdE() throws Exception {
+		return this.getEpreuves("select * from sport_epreuve order by ide");
+	}
+	
+	public ArrayList<Epreuve> trierEpreuvesByCateg() throws Exception {
+		return this.getEpreuves("select * from sport_epreuve order by categ");
+	}
+	
+	public ArrayList<Epreuve> trierEpreuvesByDateP() throws Exception {
+		return this.getEpreuves("select * from sport_epreuve order by datep");
+	}
+	
+	public ArrayList<Epreuve> trierEpreuvesByTarifClub() throws Exception {
+		return this.getEpreuves("select * from sport_epreuve order by tarifclub");
+	}
+	
+	public ArrayList<Epreuve> trierEpreuvesByTarifNonClub() throws Exception {
+		return this.getEpreuves("select * from sport_epreuve order by tarifnonclub");
+	}
 }

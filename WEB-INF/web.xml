@@ -80,10 +80,38 @@
         <param-value>cmd.NullCommande;deconnexion.jsp;all</param-value>
     </context-param>
 
+
+    <!-- pour les epreuves -->
     <context-param>
         <param-name>cmd-epreuves</param-name>
-        <param-value>cmd.CommandeEpreuves;epreuves.jsp;all</param-value>
+        <param-value>cmd.epreuves.CommandeEpreuves;epreuves.jsp;all</param-value>
     </context-param>
+
+    <context-param>
+        <param-name>cmd-epreuvesNom</param-name>
+        <param-value>cmd.epreuves.CommandeEpreuvesNom;epreuves.jsp;all</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>cmd-epreuvesCateg</param-name>
+        <param-value>cmd.epreuves.CommandeEpreuvesCateg;epreuves.jsp;all</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>cmd-epreuvesDateP</param-name>
+        <param-value>cmd.epreuves.CommandeEpreuvesDatep;epreuves.jsp;all</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>cmd-epreuvesTarifClub</param-name>
+        <param-value>cmd.epreuves.CommandeEpreuvesTarifClub;epreuves.jsp;all</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>cmd-epreuvesTarifNonClub</param-name>
+        <param-value>cmd.epreuves.CommandeEpreuvesTarifNonClub;epreuves.jsp;all</param-value>
+    </context-param>
+    <!-- fin des epreuves -->
 
     <context-param>
         <param-name>cmd-participants</param-name>

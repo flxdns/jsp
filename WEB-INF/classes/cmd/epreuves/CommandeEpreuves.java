@@ -1,6 +1,7 @@
-package cmd;
+package cmd.epreuves;
 
 import bdd.*;
+import cmd.Commande;
 
 import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
