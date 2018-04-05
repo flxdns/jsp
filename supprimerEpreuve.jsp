@@ -1,11 +1,14 @@
+<%-- ======================================
+		participants.jsp
+========================================= --%>
+
 <%@ page import="beans.Participant,java.util.List" %>
 
 <jsp:include page="ihm/miseEnPageSPORT1.jsp">
-    <jsp:param name="titre" value="LISTE DES PARTICIPANTS"/>
+    <jsp:param name="titre" value="SUPPRESSION D'UNE EPPREUVE"/>
 </jsp:include>
 
-<%
-    List<Participant> participants = (List<Participant>) request.getAttribute("participants");
+<%  List<Participant> participants = (List<Participant>) request.getAttribute("participants");
     String coul = "lignePaire";
     Integer idp = 0;
     if (participants != null) {
@@ -36,6 +39,7 @@
         }
     }
     out.println("\t\t\t\t</table>");
+    // ==============  CORPS =================================================
 %>
 
 <jsp:include page="ihm/miseEnPageSPORT2.jsp"/>
