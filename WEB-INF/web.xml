@@ -201,8 +201,13 @@
     </context-param>
 
     <context-param>
-        <param-name>cmd-ajoutInscription</param-name>
-        <param-value>cmd.inscriptions.CommandeInscriptions;ajoutInscription.jsp;admin</param-value>
+        <param-name>cmd-ajouterInscription</param-name>
+        <param-value>cmd.NullCommande;ajoutInscription.jsp;admin</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>cmd-ajouterInscriptionForm</param-name>
+        <param-value>cmd.inscriptions.CommandeAjoutInscription;inscriptions.jsp;admin</param-value>
     </context-param>
 
     <!--<context-param>
