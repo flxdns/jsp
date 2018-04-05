@@ -107,7 +107,7 @@ else {
 
             <li ><a href = "controleur?cmd=ajouterParticipant" > Nouveau participant </a ></li >
             <li ><a href = "controleur?cmd=ajouterEpreuve" > Nouvelle &eacute;preuve </a ></li >
-            <li ><a href = "controleur?cmd=ajouterInscription" > Nouvelle inscrition </a ></li >
+            <li ><a href = "controleur?cmd=ajoutInscription" > Nouvelle inscription </a ></li >
 
             <br />
 

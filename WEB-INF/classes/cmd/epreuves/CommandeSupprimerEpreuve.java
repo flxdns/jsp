@@ -3,8 +3,7 @@ package cmd.epreuves;
 import bdd.DBS;
 import bdd.DB_EPREUVE;
 import bdd.DB_INSCRIPTION;
-import beans.Epreuve;
-import cmd.Commande;
+import cmd.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.sql.Date;

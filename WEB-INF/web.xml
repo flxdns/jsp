@@ -179,6 +179,11 @@
         <param-value>cmd.inscriptions.CommandeInscriptionsCategTarif;inscriptions.jsp;all</param-value>
     </context-param>
 
+    <context-param>
+        <param-name>cmd-ajoutInscription</param-name>
+        <param-value>cmd.inscriptions.CommandeInscriptions;ajoutInscription.jsp;admin</param-value>
+    </context-param>
+
     <!--<context-param>
         <param-name>cmd-MAJinscription</param-name>
         <param-value>cmd.inscriptions.CommandeMAJInscriptions.jsp;all</param-value>

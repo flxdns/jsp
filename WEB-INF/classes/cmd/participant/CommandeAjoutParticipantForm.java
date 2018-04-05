@@ -5,6 +5,7 @@ import bdd.DB_PARTICIPANT;
 import beans.Participant;
 import cmd.Commande;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 
 public class CommandeAjoutParticipantForm implements Commande {
@@ -19,7 +20,7 @@ public class CommandeAjoutParticipantForm implements Commande {
         DB_PARTICIPANT db_participant = dbs.getDB_PARTICIPANT();
 
         db_participant.insertParticipant(new Participant(0, paramHttpServletRequest.getParameter("nom"),
-                Integer.parseInt(paramHttpServletRequest.getParameter("age"))));
+        Integer.parseInt(paramHttpServletRequest.getParameter("age"))));
         return next;
     }
 }
