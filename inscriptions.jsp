@@ -11,9 +11,14 @@
 <% // ==============  CORPS =================================================
     List< Inscription > inscriptions = ( List< Inscription > ) request.getAttribute( "inscriptions" );
     String coul = "lignePaire";
-    Integer idp = 0;
+    int idp = 0;
+    int ide = 0;
+    String categTarif = null;
+
     if( inscriptions != null ) {
         if( ( request.getParameter( "idp" ) ) != null ) idp = Integer.parseInt( request.getParameter( "idp" ) );
+        if( ( request.getParameter( "ide" ) ) != null ) ide = Integer.parseInt( request.getParameter( "ide" ) );
+        if( ( request.getParameter( "categtarif" ) ) != null ) categTarif = request.getParameter( "categtarif" );
 
         String href1 = "controleur?cmd=inscriptions&ide=" + idp;
         String href2 = "controleur?cmd=inscriptionsIde&ide=" + idp;
@@ -26,7 +31,9 @@
         out.println( "</tr>" );
         for( Inscription i : inscriptions ) {
             coul = ( coul.equals( "lignePaire" ) ) ? "ligneImpaire" : "lignePaire";
-            if( idp == i.getIdp( ) ) {
+            if( idp == i.getIdp( ) && ide == 0 ||
+                idp == i.getIdp( ) && ide == i.getIde( ) && i.getCategTarif( ).equals( categTarif ) )
+            {
                 coul = "ligneId";
                 out.println( "<tr class=\"" + coul + "\">" );
             }
