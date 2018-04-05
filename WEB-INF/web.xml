@@ -148,12 +148,12 @@
 
     <context-param>
         <param-name>cmd-ajouterParticipant</param-name>
-        <param-value>cmd.participant.CommandeAjoutParticipant;ajoutParticipant.jsp;admin</param-value>
+        <param-value>cmd.NullCommande;ajoutParticipant.jsp;admin</param-value>
     </context-param>
 
     <context-param>
         <param-name>cmd-ajouterParticipantForm</param-name>
-        <param-value>cmd.participant.CommandeAjoutParticipantForm;participants.jsp;admin</param-value>
+        <param-value>cmd.participant.CommandeAjoutParticipant;participants.jsp;admin</param-value>
     </context-param>
 
     <context-param>
