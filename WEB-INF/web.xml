@@ -118,7 +118,7 @@
     </context-param>
 
     <context-param>
-        <param-name>cmd-ajouterEpreuveFrom</param-name>
+        <param-name>cmd-ajouterEpreuveForm</param-name>
         <param-value>cmd.epreuves.CommandeAjoutEpreuve;epreuves.jsp;admin</param-value>
     </context-param>
 
