@@ -128,6 +128,12 @@
         <param-name>cmd-participantsAge</param-name>
         <param-value>cmd.participant.CommandeParticipantsAge;participants.jsp;all</param-value>
     </context-param>
+
+    <context-param>
+        <param-name>cmd-ajoutParticipant</param-name>
+        <param-value>cmd.NullCommande;ajoutParticipant.jsp;admin</param-value>
+    </context-param>
+
     <!-- fin des participants -->
 
     <!-- pour les inscriptions -->

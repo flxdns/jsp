@@ -5,7 +5,6 @@
 <%@include file="ihm/miseEnPageSPORT1.jsp" %>
 
 
-
 <%		out.println("<form>");
 		out.println("<table>");
 		out.println("<tr>");
