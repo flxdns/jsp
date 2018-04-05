@@ -20,6 +20,8 @@ public class Controleur extends HttpServlet {
     private static final String SERVLET_CONTROLE_SESSION = "/controleSession";
 
 	public static final String JSP_LOGIN = "/login.jsp";
+	
+	public static final String AJOUT_PARTICIPANT = "/ajoutParticipantForm";
 
     //Nom de la commande de login (IMPOSE DANS CETTE VERSION)
     public static final String CMD_LOGIN = "login";
@@ -60,7 +62,7 @@ public class Controleur extends HttpServlet {
 		//on indique que l'on est bien passé par le controleur
 		req.setAttribute("controleurOK",true);
 
-		String next=null;
+		String next;
 		//on récupère le nom de la commande à  activer dans la requête reà§ue                               
         	String cmd = req.getParameter("cmd");      
         	if (cmd==null) { cmd="accueil"; }
@@ -85,8 +87,8 @@ public class Controleur extends HttpServlet {
 			//on délègue le controle à  la servlet de controle de session 
 			RequestDispatcher rdSession = req.getRequestDispatcher(SERVLET_CONTROLE_SESSION);
 			rdSession.include(req,res);
-		} 
-
+		}
+		
 		//on teste si la servlet de controle de session a fait un forward
 		Boolean forwardOK = (Boolean)req.getAttribute("forwardOK");
 		if (forwardOK!=null) { return; }

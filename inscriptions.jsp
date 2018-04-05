@@ -2,14 +2,14 @@
 		participants.jsp
 ========================================= --%>
 
-<%@ page import = "beans.Participant,java.util.List" %><%@ page import = "beans.Inscription" %>
+<%@ page import = "beans.Inscription,java.util.List" %>
 
 <jsp:include page = "ihm/miseEnPageSPORT1.jsp" >
 	<jsp:param name = "titre" value = "LISTE DES INSCRIPTIONS" />
 </jsp:include >
 
 <% // ==============  CORPS =================================================
-    List< Inscription > inscriptions = ( List< Inscription> ) request.getAttribute( "inscriptions" );
+    List< Inscription > inscriptions = ( List< Inscription > ) request.getAttribute( "inscriptions" );
     String coul = "lignePaire";
     Integer idp = 0;
     if( inscriptions != null ) {
