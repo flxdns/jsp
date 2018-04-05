@@ -26,6 +26,11 @@ public class CommandeParticipants implements Commande {
         paramHttpServletRequest.setAttribute("participants", alParticipant);
         paramHttpServletRequest.setAttribute("inscriptions", alInscription);
 
+        try {
+            paramHttpServletRequest.getParameter("idp");
+            db_participant.deleteParticipant(Integer.parseInt(paramHttpServletRequest.getParameter("idp")));
+        }
+        catch(Exception ignored){}
         return next;
     }
 }

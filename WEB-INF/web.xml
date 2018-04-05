@@ -169,7 +169,7 @@
 
     <!--<context-param>-->
         <!--<param-name>cmd-delParticipant</param-name>-->
-        <!--<param-value>cmd.participant.CommandeSupprimerParticipants;participant.jsp;admin</param-value>-->
+        <!--<param-value>cmd.participant.CommandeSupprimerParticipants;supprimerParticipant.jsp;admin</param-value>-->
     <!--</context-param>-->
 
 
