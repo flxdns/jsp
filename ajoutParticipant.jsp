@@ -1,5 +1,5 @@
 <jsp:include page = "ihm/miseEnPageSPORT1.jsp" >
-    <jsp:param name = "titre" value = "Ajouter un participant" />
+    <jsp:param name = "titre" value = "Ajouter un participant " />
 </jsp:include >
 
 
