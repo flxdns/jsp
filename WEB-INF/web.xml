@@ -125,7 +125,7 @@
     <!--Supprimer les epreuves-->
     <context-param>
         <param-name>cmd-supprimerEpreuve</param-name>
-        <param-value>cmd.NullCommande;supprimerEpreuve.jsp;admin</param-value>
+        <param-value>cmd.epreuves.CommandeEpreuves;supprimerEpreuve.jsp;admin</param-value>
     </context-param>
 
     <!--Modifier les epreuves-->
@@ -161,6 +161,16 @@
         <param-name>cmd-ajouterParticipantForm</param-name>
         <param-value>cmd.participant.CommandeAjoutParticipant;participants.jsp;admin</param-value>
     </context-param>
+
+    <context-param>
+        <param-name>cmd-supprimerParticipant</param-name>
+        <param-value>cmd.participant.CommandeParticipants;supprimerParticipant.jsp;admin</param-value>
+    </context-param>
+
+    <!--<context-param>
+        <param-name>cmd-supprimerParticipantForm</param-name>
+        <param-value>cmd.participant.CommandeSupprimerParticipantsForm;participants.jsp;admin</param-value>
+    </context-param>-->
 
     <context-param>
         <param-name>cmd-modifierParticipant</param-name>

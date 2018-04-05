@@ -8,7 +8,7 @@
 <%
     List<Participant> participants = (List<Participant>) request.getAttribute("participants");
     out.println( "<form action = 'controleur' method = 'get'>" );
-    out.println( "<input type = 'hidden' name = 'cmd' value = 'modifierParticipantForm' >" );
+    out.println( "<input type = 'hidden' name = 'cmd' value = 'CommandeModifierParticipantForm' >" );
     out.println( "<table>" );
 
     out.print( "<tr>" );
