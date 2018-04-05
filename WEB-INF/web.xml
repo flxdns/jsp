@@ -128,6 +128,12 @@
         <param-value>cmd.NullCommande;supprimerEpreuve.jsp;admin</param-value>
     </context-param>
 
+    <!--Modifier les epreuves-->
+    <context-param>
+        <param-name>cmd-modifierEpreuve</param-name>
+        <param-value>cmd.epreuves.CommandeEpreuves;modifierEpreuve.jsp;admin</param-value>
+    </context-param>
+
     <!-- fin des epreuves -->
 
     <!-- pour les participants -->
