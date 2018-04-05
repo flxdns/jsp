@@ -21,13 +21,10 @@ public class CommandeEpreuves implements Commande
 	{
 		DBS            dbs = DBS.getInstance( );
 		DB_EPREUVE     dbe = dbs.getDB_EPREUVE( );
-		DB_INSCRIPTION dbi = dbs.getDB_INSCRIPTION( );
 		
-		ArrayList alInscription = dbi.getInscriptions( );
 		ArrayList alEpreuve     = dbe.getEpreuves( );
 		
 		paramHttpServletRequest.setAttribute( "epreuves" , alEpreuve );
-		paramHttpServletRequest.setAttribute( "inscriptions" , alInscription );
 		
 		return next;
 	}
