@@ -26,8 +26,8 @@
 
     out.println( "<td>" );
     out.println(
-            "<select name=\"categ\" requierd>\n" + "\n" + "           <option value=\"club\">Club</option>\n" + "\n" +
-            "           <option value=\"exterieur\">Exterieur</option>\n" + "\n" + "       </select>" );
+            "<select name=\"categ\" requierd>\n" + "\n" + "           <option value=\"enfant\">enfant</option>\n" + "\n" +
+            "           <option value=\"ado\">ado</option>\n" + " <option value=\"adulte\">adulte</option>\n" + "\n" + "       </select>" );
     out.println( "</td>" );
 
     out.println( "</tr>" );
