@@ -20,18 +20,18 @@ public class CommandeParticipants implements Commande {
         DB_PARTICIPANT db_participant = dbs.getDB_PARTICIPANT();
         DB_INSCRIPTION db_inscription = dbs.getDB_INSCRIPTION();
 
-        ArrayList alInscription = db_inscription.getInscriptions();
-        ArrayList alParticipant = db_participant.getParticipants();
-
         try {
             paramHttpServletRequest.getParameter("idp");
             db_participant.deleteParticipant(Integer.parseInt(paramHttpServletRequest.getParameter("idp")));
         }
         catch(Exception ignored){}
 
+        ArrayList alInscription = db_inscription.getInscriptions();
+        ArrayList alParticipant = db_participant.getParticipants();
+
         paramHttpServletRequest.setAttribute("participants", alParticipant);
         paramHttpServletRequest.setAttribute("inscriptions", alInscription);
-        
+
         return next;
     }
 }
