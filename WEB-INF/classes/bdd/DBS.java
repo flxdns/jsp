@@ -4,10 +4,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-/*
- * Les lignes commentÃ©es pourront Ãªtre dÃ©commentÃ©es lorsque vous aurez Ã©crit les classes
- * DB... et les classes de beans manquantes.
- */
 public class DBS
 {
 	

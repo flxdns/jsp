@@ -14,7 +14,7 @@
     out.println("</td>");
 
     out.println("<td>");
-    out.println("<input type='number' name='idp' requierd>");
+    out.println("<input type='number' name='idp' required>");
     out.println("</td>");
 
     out.print("</tr>");
@@ -26,7 +26,7 @@
     out.println("</td>");
 
     out.println("<td>");
-    out.println("<input type='number' name='ide' requierd>");
+    out.println("<input type='number' name='ide' required>");
     out.println("</td>");
 
     out.println("</td>");
@@ -39,7 +39,7 @@
 
     out.println("<td>");
     out.println(
-            "<select name=\"categtarif\" requierd>\n" + "\n" + "           <option value=\"club\">Club</option>\n" +
+            "<select name=\"categtarif\" required>\n" + "\n" + "           <option value=\"club\">Club</option>\n" +
                     "\n" + "           <option value=\"exterieur\">Exterieur</option>\n" + "\n" + "       </select>");
     out.println("</td>");
     out.println("</td>");
