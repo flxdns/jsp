@@ -26,7 +26,7 @@ public class DB_INSCRIPTION {
             ps_select = conn.prepareStatement("select categtarif from inscription where idp=? && ide=?");
             ps_insert = conn.prepareStatement("insert into inscription values(?,?,?)", ps_insert.RETURN_GENERATED_KEYS);
             ps_update = conn.prepareStatement("update inscription set categtarif=? where idp=? && ide=?");
-            ps_delete = conn.prepareStatement("delete from inscription cascade where idp=? && ide=?");
+            ps_delete = conn.prepareStatement("delete from inscription where idp=? && ide=?");
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -60,7 +60,7 @@ public class DB_INSCRIPTION {
         try {
             ps_insert.setInt(1, p.getIde());
             ps_insert.setInt(2, p.getIdp());
-            ps_insert.setString(2, p.getCategTarif());
+            ps_insert.setString(3, p.getCategTarif());
             //le paramÃ¨tre passÃ© Ã  executeUpdate permet de rÃ©cupÃ©rer les clefs
             //Ã©ventuellement gÃ©nÃ©rÃ©es automatiquement (via le type serial) au moment
             //de l'exÃ©cution de l'ordre SQL.
@@ -107,7 +107,7 @@ public class DB_INSCRIPTION {
         Inscription par;
         ArrayList<Inscription> apar = null;
         try {
-            apar = new ArrayList<Inscription>();
+            apar = new ArrayList<>( );
             Statement st = conn.createStatement();
             ResultSet rs = st.executeQuery(req);
             while (rs.next()) {

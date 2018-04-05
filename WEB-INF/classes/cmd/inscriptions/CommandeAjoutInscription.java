@@ -1,12 +1,11 @@
 package cmd.inscriptions;
 
 import bdd.DBS;
-import bdd.DB_INSCRIPTION;
-import beans.Inscription;
+import bdd.DB_EPREUVE;
+import bdd.DB_PARTICIPANT;
 import cmd.Commande;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.ArrayList;
 
 public class CommandeAjoutInscription implements Commande
 {
@@ -20,14 +19,11 @@ public class CommandeAjoutInscription implements Commande
 	public String execute( HttpServletRequest paramHttpServletRequest ) throws Exception
 	{
 		DBS            dbs            = DBS.getInstance( );
-		DB_INSCRIPTION db_inscription = dbs.getDB_INSCRIPTION( );
+		DB_PARTICIPANT db_participant = dbs.getDB_PARTICIPANT( );
+		DB_EPREUVE     db_epreuve     = dbs.getDB_EPREUVE( );
 		
-		db_inscription.insertInscription( new Inscription( Integer.parseInt( paramHttpServletRequest.getParameter( "idp" ) ) ,
-		                                                   Integer.parseInt( paramHttpServletRequest.getParameter( "categtarif" ) ) ,
-		                                                   paramHttpServletRequest.getParameter( "age" ) ) );
-		
-		ArrayList inscriptions = db_inscription.getInscriptions( );
-		paramHttpServletRequest.setAttribute( "inscriptions" , inscriptions );
+		paramHttpServletRequest.setAttribute( "participants" , db_participant.getParticipants( ) );
+		paramHttpServletRequest.setAttribute( "epreuves" , db_epreuve.getEpreuves( ) );
 		return next;
 	}
 }

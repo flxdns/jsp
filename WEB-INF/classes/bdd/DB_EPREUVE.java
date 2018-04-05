@@ -28,7 +28,7 @@ public class DB_EPREUVE
 			ps_select = conn.prepareStatement( "select nom, categ, datep, tarifclub, tarifclub from epreuve where ide=?" );
 			ps_insert = conn.prepareStatement( "insert into epreuve values(default,?,?,?,?,?)" , ps_insert.RETURN_GENERATED_KEYS );
 			ps_update = conn.prepareStatement( "update epreuve set nom=?, categ=?, datep=?,tarifclub=?, tarifnonclub=? where ide=?" );
-			ps_delete = conn.prepareStatement( "delete from epreuve cascade where ide=?" );
+			ps_delete = conn.prepareStatement( "delete from epreuve where ide=?" );
 		} catch( SQLException e ) {
 			e.printStackTrace( );
 		}

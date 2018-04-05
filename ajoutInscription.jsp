@@ -1,6 +1,6 @@
 <%@ page import = "beans.Epreuve" %><%@ page import = "beans.Participant" %><%@ page import = "java.util.List" %><jsp:include
         page = "ihm/miseEnPageSPORT1.jsp" >
-    <jsp:param name = "titre" value = "Ajouter un participant" />
+    <jsp:param name = "titre" value = "Ajouter une inscription" />
 </jsp:include >
 
 
@@ -15,7 +15,7 @@
     out.println( "</td>" );
 
     out.println( "<td>" );
-    out.print( "<select name=\"participant\">" );
+    out.print( "<select name=\"idp\">" );
 
     List< Participant > participants = ( List< Participant > ) request.getAttribute( "participants" );
 
