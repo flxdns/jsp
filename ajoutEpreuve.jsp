@@ -3,8 +3,8 @@
 </jsp:include >
 
 
-<% out.println( "<action = 'controleur' method = \"get\">" );
-    out.println( "<input type = \"hidden\" name = \"cmd\" value = \"ajoutEpreuve\" >" );
+<% out.println( "<form action = 'controleur' method = \"get\">" );
+    out.println( "<input type = \"hidden\" name = \"cmd\" value = \"ajoutEpreuveForm\" >" );
     out.println( "<table>" );
     out.print( "<tr>" );
 
