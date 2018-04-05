@@ -1,7 +1,7 @@
 <%@ page import="beans.Epreuve" %>
 <%@ page import="java.util.List" %>
 <jsp:include page = "ihm/miseEnPageSPORT1.jsp" >
-    <jsp:param name = "titre" value = "Choisir une epreuve :" />
+    <jsp:param name = "titre" value = "Modifier une epreuve :" />
 </jsp:include >
 
 
